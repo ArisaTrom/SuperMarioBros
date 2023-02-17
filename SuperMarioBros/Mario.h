@@ -12,8 +12,12 @@ class Mario{
         void encounterBoss(); 
         void encounterNothing();
         void enterWarpPipe();
+        void move();
+        
 
     private:
+        bool attackGoomba();
+        bool attackKoopa();
         std::string m_PowLevel;
         int m_V;
         int m_coinCount;

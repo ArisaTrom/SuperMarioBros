@@ -1,5 +1,7 @@
 #include "Mario.h"
 #include <iostream>
+#include <cstdlib>
+
 
 Mario::Mario(){
     std::cin >> m_V;
@@ -48,11 +50,13 @@ void Mario::encounterBoss(){
 void Mario::encounterEnemy(){
     //if enemy is Goomba
         //if win
+        //position is empty
         std::cout << "Mario fought a Goomba and won!" << std::endl;
         //if loss
         std::cout << "Mario fought a Goomba and lost :(" << std::endl;
     //if enemy is Koopa
         //if win 
+        //position
         std::cout << "Mario fought a Koopa and won!" << std::endl;
         //if loss
         std::cout << "Mario fought a Koopa and lost :(" << std::endl;
@@ -67,7 +71,29 @@ void Mario::enterWarpPipe(){
     std::cout << "Mario warped" << std::endl;
 }
 
+bool Mario::attackGoomba(){
+    //with probability
+    return true
+}
 
+bool Mario::attackKoopa(){
+
+}
+
+void Mario::move(){
+    int directions = 4;
+    int pickedChoice = (int)(rand() * directions);
+    switch (directions){
+        case 1:         //up
+        //Move mario 
+        case 2:         //down
+        case 3:         //left
+        case 4:         //right
+    }
+ }
+
+ 
+ 
 
 
 
