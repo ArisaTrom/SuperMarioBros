@@ -2,9 +2,9 @@
 #include <iostream>
 
 Mario::Mario(){
-    std::cin >> V;
-    PowLevel = "PL0";
-    coinCount = 0;
+    std::cin >> m_V;
+    m_PowLevel = "PL0";
+    m_coinCount = 0;
 
 }
 
@@ -13,25 +13,25 @@ Mario::~Mario(){
 }
 
 void Mario::collectCoin(){
-    ++coinCount;
-    if (coinCount == 20){
-        coinCount = 0;
-        ++V;
+    ++m_coinCount;
+    if (m_coinCount == 20){
+        m_coinCount = 0;
+        ++m_V;
     }
     std::cout << "Mario collected a coin" << std::endl;
 }
 
 
 void Mario::collectMushroom(){
-    switch(PowLevel){
+    switch(m_PowLevel){
         case "PL0":
-        PowLevel = "PL1";
+        m_PowLevel = "PL1";
         break;
         case "PL1":
-        PowLevel = "PL2";
+        m_PowLevel = "PL2";
         break;
         case "PL2":
-        PowLevel = "PL2";
+        m_PowLevel = "PL2";
         break;
         default:
     }

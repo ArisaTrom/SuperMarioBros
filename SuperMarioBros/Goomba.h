@@ -2,15 +2,16 @@
 #define GOOMBA_H
 #include <string>
 
-class Goomba{
+class Goomba : public GameElements{
+
+
+
     public:
         Goomba();
         ~Goomba();
-
     private:
-    
-    
-}
+        bool gProb;
+};
 
 
 #endif

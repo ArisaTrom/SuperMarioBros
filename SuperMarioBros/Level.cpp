@@ -5,19 +5,19 @@
 
 Level::Level(){
     std::cin >> N;
-    this->levelGrid = new char*[N];
+    this->m_levelGrid = new char*[N];
     for (int i = 0; i < N; ++i){
-        levelGrid[i] = new char[N];
+        m_levelGrid[i] = new char[N];
     }
     initializedGrid();
 }
 
 Level::~Level(){
     for (int i = 0; i < N; ++i){
-        delete[] levelGrid[i];
+        delete[] m_levelGrid[i];
     }
-    delete[] levelGrid;
-    levelGrid = nullptr;
+    delete[] m_levelGrid;
+    m_levelGrid = nullptr;
 
 }
 
@@ -30,7 +30,7 @@ char** Level::initializedGrid(){
             //populate with mushroom by percentage
         }
     }
-    return levelGrid;
+    return m_levelGrid;
 }
 
 void Level::displayGrid(){

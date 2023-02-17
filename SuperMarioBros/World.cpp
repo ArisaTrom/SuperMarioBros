@@ -5,13 +5,13 @@
 
 World::World(){
     std::cin >> L;
-    this->levelAndGrids = new char**[L];
+    this->m_levelAndGrids = new char**[L];
     for (int i = 0; i < L; ++i){
-        levelAndGrids[i] = Level->initializedGrid();
+        m_levelAndGrids[i] = Level->initializedGrid();
     }
 }
 
 World::~World(){
-    delete[] levelAndGrids;
+    delete[] m_levelAndGrids;
 }
 

@@ -6,7 +6,7 @@ class World{
 
     private:
         int L;
-        char*** levelAndGrids;
+        char*** m_levelAndGrids;
 };
 
 
