@@ -6,6 +6,9 @@ class Goomba{
     public:
         Goomba();
         ~Goomba();
+
+    private:
+    
     
 }
 
