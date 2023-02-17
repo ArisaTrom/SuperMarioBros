@@ -10,3 +10,8 @@ World::World(){
         levelAndGrids[i] = Level->initializedGrid();
     }
 }
+
+World::~World(){
+    delete[] levelAndGrids;
+}
+
