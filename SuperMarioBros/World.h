@@ -7,7 +7,7 @@ class World{
     private:
         int L;
         char*** levelAndGrids;
-}
+};
 
 
 #endif

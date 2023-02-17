@@ -12,7 +12,7 @@ class Level{
         void initializedGrid();
         void displayGrid();
 
-}
+};
 
 
 

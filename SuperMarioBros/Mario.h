@@ -18,7 +18,7 @@ class Mario{
         int m_V;
         int m_coinCount;
 
-}
+};
 
 
 
