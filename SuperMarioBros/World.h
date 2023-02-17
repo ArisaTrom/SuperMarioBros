@@ -3,9 +3,11 @@
 
 class World{
     public:
+        World(int L, int N);
+        ~World();
 
     private:
-        int L;
+        Level* level;
         char*** m_levelAndGrids;
 };
 

@@ -2,7 +2,7 @@
 #define BOSS_H
 
 class Boss  : public GameElements {
-
+    
 };
 
 

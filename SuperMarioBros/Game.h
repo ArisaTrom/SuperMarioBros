@@ -3,6 +3,13 @@
 
 
 class Game {
+    public:
+    Game();
+    ~Game();
+    void play();
+    private:
+    
+
 
 };
 

@@ -3,12 +3,10 @@
 #include <string>
 
 class Goomba : public GameElements{
-
-
-
     public:
         Goomba();
         ~Goomba();
+        bool 
     private:
         bool gProb;
 };

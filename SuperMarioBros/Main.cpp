@@ -1,5 +1,6 @@
 #include <iostream>
 #include <fstream>
+#include "Level.h"
 
 using namespace std;
 int main(){
@@ -7,9 +8,9 @@ int main(){
     reader.open("spec.txt");
 
     while (reader){
-        int L = getline(reader, line);
-        int N = getline(reader, line);
-        int V = getline(reader, line);
+        int L = getline(reader, line);              //# of levels
+        int N = getline(reader, line);              //grid dimension
+        int V = getline(reader, line);              //# of lives
         int coinChance = getline(reader, line);
         int emptyChance = getline(reader, line);
         int goombaChance = getline(reader, line);
@@ -17,11 +18,10 @@ int main(){
         int mushroomChance = getline(reader, line);
     }
 
-    
-
     reader.close();
-    
 
+    //Game game;
+    //game.play();
     
 
     return 0;
