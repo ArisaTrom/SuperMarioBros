@@ -25,18 +25,19 @@ void Mario::collectCoin(){
 
 
 void Mario::collectMushroom(){
-    switch(m_PowLevel){
-        case "PL0":
+    
+    if (m_PowLevel == "PL0") {
         m_PowLevel = "PL1";
-        break;
-        case "PL1":
-        m_PowLevel = "PL2";
-        break;
-        case "PL2":
-        m_PowLevel = "PL2";
-        break;
-        default:
     }
+
+    else if (m_PowLevel == "PL1") {
+        m_PowLevel = "PL2";
+    }
+
+    else {
+        m_PowLevel = "PL2";
+    }
+    
     std::cout << "Mario ate a mushroom" << std::endl;
 }
 
