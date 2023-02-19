@@ -3,15 +3,15 @@
 
 class Level{
     public:
-        Level(int N);
+        Level(int N, int coinChance, int emptyChance, int goombaChance, int koopaChance, int mushroomChance);
         ~Level();
         void displayGrid();
+        char** initializedGrid(int coinChance, int emptyChance, int goombaChance, int koopaChance, int mushroomChance);
+        int* getMario();
 
     private:
         int N;
-        char** m_levelGrid = nullptr;
-        const char population[8] = {x, m, c, g, k, b, w, H};
-        void initializedGrid();
+        char** m_levelGrid;
 };
 
 

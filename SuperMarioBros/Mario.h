@@ -1,6 +1,7 @@
 #ifndef MARIO_H
 #define MARIO_H
 #include <string>
+#include "World.h"
 
 class Mario{
     public:
@@ -12,7 +13,7 @@ class Mario{
         void encounterBoss(); 
         void encounterNothing();
         void enterWarpPipe();
-        void move();
+        int* move();
         
 
     private:

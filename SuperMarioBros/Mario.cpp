@@ -69,6 +69,9 @@ void Mario::encounterNothing(){
 void Mario::enterWarpPipe(){
     //Mario warps to random spot in next level 
     std::cout << "Mario warped" << std::endl;
+    //FInd way to increase level index
+
+
 }
 
 bool Mario::attackGoomba(){
@@ -80,16 +83,19 @@ bool Mario::attackKoopa(){
 
 }
 
-void Mario::move(){
+int* Mario::move(){
+    int* newCoordinates = new int[2];
+
     int directions = 4;
     int pickedChoice = (int)(rand() * directions);
     switch (directions){
         case 1:         //up
-        //Move mario 
+        //Move mario - int* getMario(); 
         case 2:         //down
         case 3:         //left
         case 4:         //right
     }
+    return newCoordinates;
  }
 
  
