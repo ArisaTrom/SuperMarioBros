@@ -6,11 +6,12 @@ class Level{
         Level(int N, int coinChance, int emptyChance, int goombaChance, int koopaChance, int mushroomChance);
         ~Level();
         void displayGrid();
-        char** initializedGrid(int coinChance, int emptyChance, int goombaChance, int koopaChance, int mushroomChance);
+        void initializedGrid(int coinChance, int emptyChance, int goombaChance, int koopaChance, int mushroomChance);
         int* getMario();
+        char** getGrid();
 
     private:
-        int N;
+        int m_N;
         char** m_levelGrid;
 };
 

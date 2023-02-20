@@ -8,7 +8,8 @@ class World{
         ~World();
 
     private:
-        Level* level;
+        int m_L;
+        Level* m_level;
         char*** m_levelAndGrids;
 };
 
