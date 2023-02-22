@@ -36,7 +36,6 @@ World::~World(){
 void World::initializeLevels(int coinChance, int emptyChance, int goombaChance, int koopaChance, int mushroomChance){
     srand(time(NULL));
     for (int i = 0; i < m_L; i++){
-        std::cout << "initalizing level " << i << std::endl;
         for (int j = 0; j < m_N; ++j){
             for (int k = 0; k < m_N; ++k){
                 //std::cout << "second for loop" << i << j << k << std::endl;
@@ -81,6 +80,8 @@ void World::initializeLevels(int coinChance, int emptyChance, int goombaChance, 
             }
         }
 
+        displayGrid(i);
+
         while (true){
                 iRand = (rand() % m_N);
                 jRand = (rand() % m_N);
@@ -89,13 +90,13 @@ void World::initializeLevels(int coinChance, int emptyChance, int goombaChance, 
                     break;
                 }
         }
-        displayGrid(i);
+        
     }
     
 }
 
 void World::displayGrid(int level){
-    std::cout << "display Grid function" << std::endl;
+    std::cout << "========================" << std::endl;
     for (int i = 0; i < m_N; ++i){
         for (int j = 0; j < m_N; ++j){
             std::cout << m_levelAndGrids[level][i][j] << " ";

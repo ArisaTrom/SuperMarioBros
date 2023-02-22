@@ -29,6 +29,7 @@ class Mario{
         int* m_MarioPosition;
         int m_PowLevel;
         int m_V;
+        int m_defeatedEnemyCount;
         World* m_world;
         int m_coinCount;
         std::string m_direction;

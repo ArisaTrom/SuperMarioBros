@@ -1,6 +1,7 @@
 #include <iostream>
 #include <fstream>
 #include "World.h"
+#include "Mario.h"
 
 using namespace std;
 int main(){
@@ -38,15 +39,15 @@ int main(){
 
     World* world;
     world = new World(L, N, coinChance, emptyChance, goombaChance, koopaChance, mushroomChance);
-    // Mario* mario;
-    // mario = new Mario(V, world);
+    Mario* mario;
+    mario = new Mario(V, world);
+
+    mario->play();
     
 
     reader.close();
 
-    //Game game;
-    //game.play();
-
+    delete mario;
     delete world;
 
     return 0;
