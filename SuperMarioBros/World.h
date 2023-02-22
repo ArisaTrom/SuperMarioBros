@@ -11,11 +11,12 @@ class World{
         int* getMario(int level);
         int m_currentLevelForMario;
         void moveMario(int level, int mario_x, int mario_y);
+        char*** m_levelAndGrids;
 
     private:
         int m_L;
         int m_N;
-        char*** m_levelAndGrids;
+        
 };
 
 

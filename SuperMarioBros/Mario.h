@@ -8,6 +8,7 @@ class Mario{
         Mario(int V, World* world);
         ~Mario();
         int* move();
+        void play();
         
 
     private:
@@ -28,6 +29,7 @@ class Mario{
         int m_V;
         World* m_world;
         int m_coinCount;
+        std::string m_direction;
 
 };
 
