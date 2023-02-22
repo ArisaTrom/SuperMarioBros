@@ -5,22 +5,28 @@
 
 class Mario{
     public:
-        Mario();
+        Mario(int V, World* world);
         ~Mario();
+        int* move();
+        
+
+    private:
         void collectCoin();
         void collectMushroom();
         void encounterEnemy();
         void encounterBoss(); 
         void encounterNothing();
         void enterWarpPipe();
-        int* move();
-        
-
-    private:
         bool attackGoomba();
         bool attackKoopa();
-        std::string m_PowLevel;
+        void moveUp();
+        void moveDown();
+        void moveLeft();
+        void moveRight();
+        int* m_MarioPosition;
+        int m_PowLevel;
         int m_V;
+        World* m_world;
         int m_coinCount;
 
 };

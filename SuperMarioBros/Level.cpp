@@ -24,7 +24,7 @@ Level::~Level(){
 
 void Level::initializedGrid(int coinChance, int emptyChance, int goombaChance, int koopaChance, int mushroomChance){
     std::cout << "initalizing grid" << std::endl;
-    srand(time(0));
+    srand(time(NULL));
     for (int i = 0; i < m_N; ++i){
         for (int j = 0; j < m_N; ++j){
             int probability = 1 + (rand() % 100);
@@ -53,22 +53,31 @@ void Level::initializedGrid(int coinChance, int emptyChance, int goombaChance, i
         }
     }
 
+
     int iRand = (rand() % m_N);
     int jRand = (rand() % m_N);
     this->m_levelGrid[iRand][jRand] = 'b';
 
-    iRand = (rand() % m_N);
-    jRand = (rand() % m_N);
-    if (this->m_levelGrid[iRand][jRand] != 'b'){
-        this->m_levelGrid[iRand][jRand] = 'w';
+    while(true){
+        iRand = (rand() % m_N);
+        jRand = (rand() % m_N);
+        if (this->m_levelGrid[iRand][jRand] != 'b'){
+            this->m_levelGrid[iRand][jRand] = 'w';
+            break;
+        }
     }
     displayGrid();
+   
+   while (true){
+        iRand = (rand() % m_N);
+        jRand = (rand() % m_N);
+        if (this->m_levelGrid[iRand][jRand] != 'b' && this->m_levelGrid[iRand][jRand] != 'w'){
+            this->m_levelGrid[iRand][jRand] = 'H';
+            break;
+        }
+   }
     
-    iRand = (rand() % m_N);
-    jRand = (rand() % m_N);
-    if (this->m_levelGrid[iRand][jRand] != 'b' && this->m_levelGrid[iRand][jRand] != 'w'){
-        this->m_levelGrid[iRand][jRand] = 'H';
-    }
+    
 
 }
 

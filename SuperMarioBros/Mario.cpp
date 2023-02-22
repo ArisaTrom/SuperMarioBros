@@ -3,16 +3,32 @@
 #include <cstdlib>
 
 
-Mario::Mario(){
-    std::cin >> m_V;
-    m_PowLevel = "PL0";
+Mario::Mario(int V, World* world){
+    m_V = V;
+    m_world = world;
+    m_PowLevel = 0;
     m_coinCount = 0;
+    m_MarioPosition = m_world->getMario(world->m_currentLevelForMario);
 
 }
 
 Mario::~Mario(){
 
 }
+
+// while (m_V != 0){            //while mario is alive
+//     if (world->m_levelAndGrids[world->m_currentLevelForMario][m_MarioPosition[0]][m_MarioPosition[1]] == 'H'){
+//         move();
+//     }
+//     if (world->m_levelAndGrids[world->m_currentLevelForMario][m_MarioPosition[0]][m_MarioPosition[1]] == 'm'){
+//         //collect mushroom and move Mario
+//         collectMushroom();
+//         world->moveMario(world->m_currentLevelForMario, m_MarioPosition[0], m_MarioPosition[1]);
+//         world->displayGrid(world->m_currentLevelForMario);
+//     }
+
+// }
+
 
 void Mario::collectCoin(){
     ++m_coinCount;
@@ -26,16 +42,12 @@ void Mario::collectCoin(){
 
 void Mario::collectMushroom(){
     
-    if (m_PowLevel == "PL0") {
-        m_PowLevel = "PL1";
-    }
-
-    else if (m_PowLevel == "PL1") {
-        m_PowLevel = "PL2";
-    }
-
-    else {
-        m_PowLevel = "PL2";
+    switch (m_PowLevel){
+        case 0:
+        case 1:
+        ++m_PowLevel;
+        default:
+        break;
     }
     
     std::cout << "Mario ate a mushroom" << std::endl;
@@ -68,7 +80,8 @@ void Mario::encounterNothing(){
 }
 
 void Mario::enterWarpPipe(){
-    //Mario warps to random spot in next level 
+    //Mario warps to random spot in next level
+    m_world->goNextLevel();
     std::cout << "Mario warped" << std::endl;
     //FInd way to increase level index
 
@@ -77,7 +90,7 @@ void Mario::enterWarpPipe(){
 
 bool Mario::attackGoomba(){
     //with probability
-    return true
+    return true;
 }
 
 bool Mario::attackKoopa(){
@@ -91,13 +104,40 @@ int* Mario::move(){
     int pickedChoice = (int)(rand() * directions);
     switch (directions){
         case 1:         //up
+        moveUp();
+        break;
         //Move mario - int* getMario(); 
         case 2:         //down
+        moveDown();
+        break;
         case 3:         //left
+        moveLeft();
+        break;
         case 4:         //right
+        moveUp();
+        break;
+        default:
+        break;
     }
     return newCoordinates;
- }
+}
+
+
+void Mario::moveDown(){
+    m_MarioPosition[1]--;
+}
+
+void Mario::moveLeft(){
+    m_MarioPosition[0]--;
+}
+
+void Mario::moveRight(){
+    m_MarioPosition[0]++;
+}
+
+void Mario::moveUp(){
+    m_MarioPosition[1]++;
+}
 
  
  

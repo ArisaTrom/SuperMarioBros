@@ -38,13 +38,16 @@ int main(){
 
     World* world;
     world = new World(L, N, coinChance, emptyChance, goombaChance, koopaChance, mushroomChance);
-    cout << "displaying grid" << endl;
+    // Mario* mario;
+    // mario = new Mario(V, world);
+    
 
     reader.close();
 
     //Game game;
     //game.play();
-    
+
+    delete world;
 
     return 0;
 
