@@ -169,10 +169,12 @@ bool Mario::encounterEnemy(char enemy){
         int probability = 1 + (rand() % 100);
             if (probability <= 65){
                 // if win
+                marioWin();
                 enemyResult = true;
             } 
             else{
                 //if lose
+                marioLose();
                 enemyResult = false;
             }
     }
