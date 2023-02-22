@@ -26,6 +26,25 @@ Mario::~Mario(){
 //         world->moveMario(world->m_currentLevelForMario, m_MarioPosition[0], m_MarioPosition[1]);
 //         world->displayGrid(world->m_currentLevelForMario);
 //     }
+//     if (world->m_levelAndGrids[world->m_currentLevelForMario][m_MarioPosition[0]][m_MarioPosition[1]] == 'c'){
+//         //collect coin and move mario
+//         collectCoin();
+//         world->moveMario(world->m_currentLevelForMario, m_MarioPosition[0], m_MarioPosition[1]);
+//         world->displayGrid(world->m_currentLevelForMario);
+//     }
+//     if (world->m_levelAndGrids[world->m_currentLevelForMario][m_MarioPosition[0]][m_MarioPosition[1]] == 'g' || 'k'){
+//         //encounter enemy and move mario
+//         encounterEnemy();
+//         world->moveMario(world->m_currentLevelForMario, m_MarioPosition[0], m_MarioPosition[1]);
+//         world->displayGrid(world->m_currentLevelForMario);
+//     }
+//     if (world->m_levelAndGrids[world->m_currentLevelForMario][m_MarioPosition[0]][m_MarioPosition[1]] == 'x'){
+//         //encounter nothing and move mario
+//         world->moveMario(world->m_currentLevelForMario, m_MarioPosition[0], m_MarioPosition[1]);
+//         world->displayGrid(world->m_currentLevelForMario);
+//     }
+    
+
 
 // }
 
