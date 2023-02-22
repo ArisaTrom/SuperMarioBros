@@ -8,7 +8,7 @@ World::World(int L, int N, int coinChance, int emptyChance, int goombaChance, in
     m_L = L;
     m_N = N;
     m_levelAndGrids = new char**[m_L];
-    m_currentLevelForMario = -1;            //Level 0 is first level
+    m_currentLevelForMario = 0;            //Level 0 is first level
 
     for (int i = 0; i < m_L; ++i){
         m_levelAndGrids[i] = new char*[m_N];
@@ -35,11 +35,8 @@ World::~World(){
 
 void World::initializeLevels(int coinChance, int emptyChance, int goombaChance, int koopaChance, int mushroomChance){
     srand(time(NULL));
-    std::cout << m_L << m_N << std::endl;
     for (int i = 0; i < m_L; i++){
         std::cout << "initalizing level " << i << std::endl;
-        m_currentLevelForMario++;
-        std::cout << m_currentLevelForMario << std::endl;
         for (int j = 0; j < m_N; ++j){
             for (int k = 0; k < m_N; ++k){
                 //std::cout << "second for loop" << i << j << k << std::endl;

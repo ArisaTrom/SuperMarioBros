@@ -114,7 +114,7 @@ int* Mario::move(){
         moveLeft();
         break;
         case 4:         //right
-        moveUp();
+        moveRight();
         break;
         default:
         break;
