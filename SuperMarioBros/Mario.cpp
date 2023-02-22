@@ -111,19 +111,49 @@ void Mario::encounterBoss(){
     std::cout << "Mario fought the level boss and lost :(" << std::endl;
 }
 
-void Mario::encounterEnemy(){
-    //if enemy is Goomba
-        //if win
-        //position is empty
-        std::cout << "Mario fought a Goomba and won!" << std::endl;
-        //if loss
-        std::cout << "Mario fought a Goomba and lost :(" << std::endl;
-    //if enemy is Koopa
-        //if win 
-        //position
-        std::cout << "Mario fought a Koopa and won!" << std::endl;
-        //if loss
-        std::cout << "Mario fought a Koopa and lost :(" << std::endl;
+bool Mario::encounterEnemy(char enemy){
+    //if enemy is Goomba - outside function if H lands on g or k, then call this function
+
+    bool enemyResult;
+
+    if (enemy == 'g'){
+        srand(time(NULL));
+        int probability = 1 + (rand() % 100);
+            if (probability <= 80){
+                // if win
+                m_world->moveMario(m_world->m_currentLevelForMario, m_MarioPosition[0], m_MarioPosition[1]);
+                enemyResult = true;
+            } 
+            else{
+                //if lose
+                enemyResult = false;
+            }
+    }
+
+    if (enemy == 'k'){
+        srand(time(NULL));
+        int probability = 1 + (rand() % 100);
+            if (probability <= 65){
+                // if win
+                enemyResult = true;
+            } 
+            else{
+                //if lose
+                enemyResult = false;
+            }
+    }
+
+    return enemyResult;
+}
+
+void Mario::marioWin(){
+    //if mario win
+    m_MarioPosition[]
+
+}
+
+void Mario::marioLose(){
+    //if mario lose
 }
 
 void Mario::encounterNothing(){

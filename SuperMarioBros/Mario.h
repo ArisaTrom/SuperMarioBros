@@ -14,7 +14,9 @@ class Mario{
     private:
         void collectCoin();
         void collectMushroom();
-        void encounterEnemy();
+        bool encounterEnemy(char enemy);
+        void marioWin();
+        void marioLose();
         void encounterBoss(); 
         void encounterNothing();
         void enterWarpPipe();
