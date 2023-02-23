@@ -24,34 +24,39 @@ void Mario::play(){
 
         std::string result = "";
         bool marioWon = false;
+        int* newPosition = new int[2];
 
         if (m_world->m_levelAndGrids[m_world->m_currentLevelForMario][m_MarioPosition[0]][m_MarioPosition[1]] == 'H'){
             std::cout << "Mario is starting at (" << m_MarioPosition[0] << ", " << m_MarioPosition[1] << "). " << std::endl;
             m_world->displayGrid(m_world->m_currentLevelForMario);
-            m_MarioPosition = move();                                      // sets where mario will be 
-            std::cout << m_MarioPosition[0] << m_MarioPosition[1] << std::endl;
+            std::cout << "Level: " << m_world->m_currentLevelForMario << ". Mario is at (" << m_MarioPosition[0] << ", " << m_MarioPosition[1] << "). ";
+            std::cout << "Mario is at power level " << m_PowLevel << ". Mario ate a mushroom. Mario has " << m_V << " lives left. Mario has " << m_coinCount;
+            std::cout << " coins. Mario will move " << m_direction << "." << std::endl;         
+            m_MarioPosition = move();
         }
         else if (m_world->m_levelAndGrids[m_world->m_currentLevelForMario][m_MarioPosition[0]][m_MarioPosition[1]] == 'm'){
             //collect mushroom and move Mario
             collectMushroom();
             m_world->moveMario(m_world->m_currentLevelForMario, m_MarioPosition[0], m_MarioPosition[1]);
             m_world->displayGrid(m_world->m_currentLevelForMario);
+            newPosition = move();
             std::cout << "Level: " << m_world->m_currentLevelForMario << ". Mario is at (" << m_MarioPosition[0] << ", " << m_MarioPosition[1] << "). ";
             std::cout << "Mario is at power level " << m_PowLevel << ". Mario ate a mushroom. Mario has " << m_V << " lives left. Mario has " << m_coinCount;
             std::cout << " coins. Mario will move " << m_direction << "." << std::endl;
             m_MarioPosition = m_world->getMario(m_world->m_currentLevelForMario);          
-            m_MarioPosition = move();
+            m_MarioPosition = newPosition;
         }
         else if (m_world->m_levelAndGrids[m_world->m_currentLevelForMario][m_MarioPosition[0]][m_MarioPosition[1]] == 'c'){
             //collect coin and move mario
             collectCoin();
             m_world->moveMario(m_world->m_currentLevelForMario, m_MarioPosition[0], m_MarioPosition[1]);
             m_world->displayGrid(m_world->m_currentLevelForMario);
+            newPosition = move();
             std::cout << "Level: " << m_world->m_currentLevelForMario << ". Mario is at (" << m_MarioPosition[0] << ", " << m_MarioPosition[1] << "). ";
             std::cout << "Mario is at power level " << m_PowLevel << ". Mario collected a coin. Mario has " << m_V << " lives left. Mario has " << m_coinCount;
             std::cout << " coins. Mario will move " << m_direction << "." << std::endl;
             m_MarioPosition = m_world->getMario(m_world->m_currentLevelForMario);
-            m_MarioPosition = move();
+            m_MarioPosition = newPosition;
 
         }
         else if (m_world->m_levelAndGrids[m_world->m_currentLevelForMario][m_MarioPosition[0]][m_MarioPosition[1]] == 'g'){
@@ -64,11 +69,12 @@ void Mario::play(){
                 result = "lost";
             }
             m_world->displayGrid(m_world->m_currentLevelForMario);
+            newPosition = move();
             std::cout << "Level: " << m_world->m_currentLevelForMario << ". Mario is at (" << m_MarioPosition[0] << ", " << m_MarioPosition[1] << "). ";
             std::cout << "Mario is at power level " << m_PowLevel << ". Mario encountered a goomba and " << result << ". Mario has " << m_V << " lives left. Mario has " << m_coinCount;
             std::cout << " coins. Mario will move " << m_direction << "." << std::endl;
             m_MarioPosition = m_world->getMario(m_world->m_currentLevelForMario);
-            m_MarioPosition = move();
+            m_MarioPosition = newPosition;
         }
         else if (m_world->m_levelAndGrids[m_world->m_currentLevelForMario][m_MarioPosition[0]][m_MarioPosition[1]] == 'k'){
             //encounter enemy and move mario
@@ -80,32 +86,35 @@ void Mario::play(){
                 result = "lost";
             }
             m_world->displayGrid(m_world->m_currentLevelForMario);
+            newPosition = move();
             std::cout << "Level: " << m_world->m_currentLevelForMario << ". Mario is at (" << m_MarioPosition[0] << ", " << m_MarioPosition[1] << "). ";
             std::cout << "Mario is at power level " << m_PowLevel << ". Mario encountered a koopa and " << result << ". Mario has " << m_V << " lives left. Mario has " << m_coinCount;
             std::cout << " coins. Mario will move " << m_direction << "." << std::endl;
             m_MarioPosition = m_world->getMario(m_world->m_currentLevelForMario);
-            m_MarioPosition = move();
+            m_MarioPosition = newPosition;
         }
         else if (m_world->m_levelAndGrids[m_world->m_currentLevelForMario][m_MarioPosition[0]][m_MarioPosition[1]] == 'x'){
             //encounter nothing and move mario
             m_world->moveMario(m_world->m_currentLevelForMario, m_MarioPosition[0], m_MarioPosition[1]);
             m_world->displayGrid(m_world->m_currentLevelForMario);
+            newPosition = move();
             std::cout << "Level: " << m_world->m_currentLevelForMario << ". Mario is at (" << m_MarioPosition[0] << ", " << m_MarioPosition[1] << "). ";
             std::cout << "Mario is at power level " << m_PowLevel << ". Mario visited an empty space. Mario has " << m_V << " lives left. Mario has " << m_coinCount;
             std::cout << " coins. Mario will move " << m_direction << "." << std::endl;
             m_MarioPosition = m_world->getMario(m_world->m_currentLevelForMario);
-            m_MarioPosition = move();
+            m_MarioPosition = newPosition;
         }
         else if (m_world->m_levelAndGrids[m_world->m_currentLevelForMario][m_MarioPosition[0]][m_MarioPosition[1]] == 'w'){
             //encounter warp pipe move to next level
             enterWarpPipe();
             m_MarioPosition = m_world->getMario(m_world->m_currentLevelForMario);
             m_world->displayGrid(m_world->m_currentLevelForMario);
+            newPosition = move();
             std::cout << "Level: " << m_world->m_currentLevelForMario << ". Mario is at (" << m_MarioPosition[0] << ", " << m_MarioPosition[1] << "). ";
-            std::cout << "Mario is at power level " << m_PowLevel << ". Mario visited an empty space. Mario has " << m_V << " lives left. Mario has " << m_coinCount;
+            std::cout << "Mario is at power level " << m_PowLevel << ". Mario warped to next level. Mario has " << m_V << " lives left. Mario has " << m_coinCount;
             std::cout << " coins. Mario will move " << m_direction << "." << std::endl;
             m_MarioPosition = m_world->getMario(m_world->m_currentLevelForMario);
-            m_MarioPosition = move();
+            m_MarioPosition = newPosition;
         }
         
 
@@ -197,6 +206,7 @@ void Mario::marioLose(){
     if (m_PowLevel = 0){
         m_V--;
         m_defeatedEnemyCount = 0;
+        m_PowLevel = 0;
     }
     else {
         m_PowLevel--;
@@ -204,14 +214,10 @@ void Mario::marioLose(){
 
 }
 
-void Mario::encounterNothing(){
-    std::cout << "The position is empty" << std::endl;
-}
 
 void Mario::enterWarpPipe(){
     //Mario warps to random spot in next level
     m_world->goNextLevel();
-    std::cout << "Mario warped" << std::endl;
     //FInd way to increase level index
 
 
@@ -219,11 +225,10 @@ void Mario::enterWarpPipe(){
 
 
 int* Mario::move(){
-    int* newCoordinates = new int[2];
 
     int directions = 4;
-    int pickedChoice = (int)(rand() * directions);
-    switch (directions){
+    int randDirection = 1 + (rand() % directions);
+    switch (randDirection){
         case 1:         
         m_direction = "UP";
         moveUp();
@@ -240,13 +245,14 @@ int* Mario::move(){
         m_direction = "RIGHT";
         moveRight();
         break;
+        
     }
-    return newCoordinates;
+    return m_MarioPosition;
 }
 
 
 void Mario::moveDown(){
-    if (m_MarioPosition[1] == m_world->m_N){        // if at the bottom of grid move to top
+    if (m_MarioPosition[1] == m_world->m_N - 1){        // if at the bottom of grid move to top
         m_MarioPosition[1] = 0;
     }
     else{
@@ -257,7 +263,7 @@ void Mario::moveDown(){
 
 void Mario::moveLeft(){
     if (m_MarioPosition[0] == 0){                   // if at the left of grid move to right edge
-        m_MarioPosition[0] = m_world->m_N;
+        m_MarioPosition[0] = m_world->m_N - 1;
     }
     else{
         m_MarioPosition[0] = m_MarioPosition[0] - 1;
@@ -267,7 +273,7 @@ void Mario::moveLeft(){
 
 void Mario::moveRight(){
 
-    if (m_MarioPosition[0] == m_world->m_N){        // if at the right of grid move to left edge
+    if (m_MarioPosition[0] == m_world->m_N - 1){        // if at the right of grid move to left edge
         m_MarioPosition[0] = 0;
     }
     else{
@@ -278,7 +284,7 @@ void Mario::moveRight(){
 
 void Mario::moveUp(){
     if (m_MarioPosition[1] == 0){                   // if at the top of the grid move to the bottom
-        m_MarioPosition[1] = m_world->m_N;
+        m_MarioPosition[1] = m_world->m_N - 1;
     }
     else{
         m_MarioPosition[1] = m_MarioPosition[1] - 1;
