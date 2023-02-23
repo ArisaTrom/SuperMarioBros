@@ -12,16 +12,14 @@ class Mario{
         
 
     private:
+        void firstMove();
         void collectCoin();
         void collectMushroom();
         bool encounterEnemy(char enemy);
         void marioWin();
         void marioLose();
         void encounterBoss(); 
-        void encounterNothing();
         void enterWarpPipe();
-        bool attackGoomba();
-        bool attackKoopa();
         void moveUp();
         void moveDown();
         void moveLeft();
@@ -33,6 +31,7 @@ class Mario{
         World* m_world;
         int m_coinCount;
         std::string m_direction;
+        int* m_newPosition;
 
 };
 

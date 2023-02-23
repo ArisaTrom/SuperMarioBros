@@ -9,6 +9,7 @@ World::World(int L, int N, int coinChance, int emptyChance, int goombaChance, in
     m_N = N;
     m_levelAndGrids = new char**[m_L];
     m_currentLevelForMario = 0;            //Level 0 is first level
+    m_firstGameElements = new char[m_L];
 
     for (int i = 0; i < m_L; ++i){
         m_levelAndGrids[i] = new char*[m_N];
@@ -57,8 +58,8 @@ void World::initializeLevels(int coinChance, int emptyChance, int goombaChance, 
                     m_levelAndGrids[i][j][k] = 'k';
                 }
                 else if (probability <= 100){
-                    //koopa placement
-                    m_levelAndGrids[i][j][k] = 'k';
+                    //mushroom placement
+                    m_levelAndGrids[i][j][k] = 'm';
                 }
                 else {
                     std::cout << "Didnt work" << std::endl;
@@ -86,6 +87,7 @@ void World::initializeLevels(int coinChance, int emptyChance, int goombaChance, 
                 iRand = (rand() % m_N);
                 jRand = (rand() % m_N);
                 if (m_levelAndGrids[i][iRand][jRand] != 'b' && m_levelAndGrids[i][iRand][jRand] != 'w'){
+                    m_firstGameElements[i] = m_levelAndGrids[i][iRand][jRand];
                     m_levelAndGrids[i][iRand][jRand] = 'H';
                     break;
                 }
@@ -94,6 +96,7 @@ void World::initializeLevels(int coinChance, int emptyChance, int goombaChance, 
     }
     
 }
+
 
 void World::displayGrid(int level){
     std::cout << "========================" << std::endl;
@@ -127,6 +130,19 @@ void World::moveMario(int level, int mario_x, int mario_y){
         for (int j = 0; j < m_N; ++j){
             if (m_levelAndGrids[level][i][j] == 'H'){
                 m_levelAndGrids[level][i][j] = 'x';
+            }
+        }
+    }
+    // makes new Mario position into H
+    m_levelAndGrids[level][mario_x][mario_y] = 'H';
+}
+
+void World::moveMarioAfterLoss(int level, int mario_x, int mario_y, char e){
+
+    for (int i = 0; i < m_N; ++i){
+        for (int j = 0; j < m_N; ++j){
+            if (m_levelAndGrids[level][i][j] == 'H'){
+                m_levelAndGrids[level][i][j] = e;
             }
         }
     }
