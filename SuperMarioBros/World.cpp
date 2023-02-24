@@ -1,7 +1,10 @@
 #include "World.h"
+#include "Mario.h"
 #include <iostream>
 #include <cstdlib>
 #include <ctime>
+
+
 
 
 World::World(int L, int N, int coinChance, int emptyChance, int goombaChance, int koopaChance, int mushroomChance){
@@ -150,15 +153,6 @@ void World::moveMarioAfterLoss(int level, int mario_x, int mario_y, char e){
     m_levelAndGrids[level][mario_x][mario_y] = 'H';
 }
 
-void World::goNextLevel(){
-    if (m_currentLevelForMario >= m_L){
-        //no more levels
-    }
-    else{
-        m_currentLevelForMario++;
-    }
-    
-}
 
 
 

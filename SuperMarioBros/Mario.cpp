@@ -172,10 +172,29 @@ void Mario::play(){
             std::cout << " coins. Mario will move " << m_direction << "." << std::endl;
             m_MarioPosition = m_newPosition;
         }
+        else if (m_world->m_levelAndGrids[m_world->m_currentLevelForMario][m_MarioPosition[0]][m_MarioPosition[1]] == 'b'){
+        std::cout << "ENCOUNTERED BOSS" << std::endl;
+            marioWon = encounterBoss();
+            if (!marioWon){
+                result = "lost";
+                m_world->moveMario(m_world->m_currentLevelForMario, m_MarioPosition[0], m_MarioPosition[1]);
+            } else {
+                result = "won";
+            }
+            m_MarioPosition = m_world->getMario(m_world->m_currentLevelForMario);
+            m_world->displayGrid(m_world->m_currentLevelForMario);
+            std::cout << "Level: " << m_world->m_currentLevelForMario << ". Mario is at (" << m_MarioPosition[0] << ", " << m_MarioPosition[1] << "). ";
+            std::cout << "Mario is at power level " << m_PowLevel << ". Mario warped to next level. Mario has " << m_V << " lives left. Mario has " << m_coinCount;
+            m_newPosition = move();    
+            std::cout << " coins. Mario will move " << m_direction << "." << std::endl;
+            m_MarioPosition = m_newPosition;
+        }
         
 
 
     }
+
+    std::cout << "WE BEAT THE GAME! :)" << std::endl;
     
 }
 
@@ -261,20 +280,57 @@ void Mario::collectMushroom(){
     switch (m_PowLevel){
         case 0:
         case 1:
-        ++m_PowLevel;
-        break;
+            ++m_PowLevel;
+            break;
         default:
-        break;
+            break;
     }
     
 }
 
-void Mario::encounterBoss(){
+bool Mario::encounterBoss(){
     //if win 
-    std::cout << "Mario fought the level boss and won!" << std::endl;
-    //if loss
-    std::cout << "Mario fought the level boss and lost :(" << std::endl;
+
+    bool bossResult;
+
+     srand(time(NULL));
+        int probability = 1 + (rand() % 100);
+            if (probability <= 50){
+                // if win
+                bossWin();
+                bossResult = true;
+                std::cout << "Mario fought the level boss and won!" << std::endl;
+            } 
+            else{
+                //if lose
+                bossLose();
+                bossResult = false;
+                std::cout << "Mario fought the level boss and lost :(" << std::endl;
+            }
+
+    return bossResult;
 }
+
+void Mario::bossWin(){
+    goNextLevel();
+}
+
+void Mario::bossLose(){
+    switch (m_PowLevel){
+        case 0:
+        case 1:
+            m_V--;
+            break;
+        case 2:
+            m_PowLevel -= 2;
+            encounterBoss();
+            break;
+        default:
+            break;
+    }
+}
+
+
 
 bool Mario::encounterEnemy(char enemy){
     //if enemy is Goomba or Koopa - outside function if H lands on g or k, then call this function
@@ -340,7 +396,7 @@ void Mario::marioLose(){
 
 void Mario::enterWarpPipe(){
     //Mario warps to random spot in next level
-    m_world->goNextLevel();
+    goNextLevel();
     //FInd way to increase level index
 
 
@@ -415,7 +471,15 @@ void Mario::moveUp(){
     
 }
 
- 
+void Mario::goNextLevel(){
+    if (m_world->m_currentLevelForMario >= m_world->m_L){
+        m_V = 0;
+    }
+    else{
+        m_world->m_currentLevelForMario++;
+    }
+    
+}
  
 
 

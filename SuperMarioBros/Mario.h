@@ -9,6 +9,7 @@ class Mario{
         ~Mario();
         int* move();
         void play();
+        int m_V;
         
 
     private:
@@ -18,15 +19,17 @@ class Mario{
         bool encounterEnemy(char enemy);
         void marioWin();
         void marioLose();
-        void encounterBoss(); 
+        bool encounterBoss();
+        void bossWin();
+        void bossLose(); 
         void enterWarpPipe();
         void moveUp();
         void moveDown();
         void moveLeft();
         void moveRight();
+        void goNextLevel();
         int* m_MarioPosition;
         int m_PowLevel;
-        int m_V;
         int m_defeatedEnemyCount;
         World* m_world;
         int m_coinCount;
