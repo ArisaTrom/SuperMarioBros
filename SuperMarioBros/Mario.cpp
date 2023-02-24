@@ -185,10 +185,8 @@ void Mario::play(){
             } else {
                 result = "won";
                 std::cout << "Level: " << m_world->m_currentLevelForMario << ". Mario is at (" << m_MarioPosition[0] << ", " << m_MarioPosition[1] << "). ";
-                std::cout << "Mario is at power level " << m_PowLevel << ". Mario encountered a boss and " << result << ". Mario has " << m_lastLifeCount << " lives left. Mario has " << m_coinCount;
-                m_newPosition = move();    
+                std::cout << "Mario is at power level " << m_PowLevel << ". Mario encountered a boss and " << result << ". Mario has " << m_lastLifeCount << " lives left. Mario has " << m_coinCount;  
                 std::cout << " coins. Mario will move " << m_direction << "." << std::endl;
-                m_MarioPosition = m_newPosition;
             }
             m_world->moveMario(m_world->m_currentLevelForMario, m_MarioPosition[0], m_MarioPosition[1]);
             m_MarioPosition = m_world->getMario(m_world->m_currentLevelForMario);
@@ -200,7 +198,12 @@ void Mario::play(){
 
     }
 
-    std::cout << "WE BEAT THE GAME! :)" << std::endl;
+    std::cout << m_lastLifeCount << std::endl;
+    if (m_lastLifeCount != 0){
+        std::cout << "WE BEAT THE GAME! :)" << std::endl;
+    } else {
+        std::cout << "GAME OVER :(" << std::endl;
+    }
     
 }
 

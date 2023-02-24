@@ -75,14 +75,17 @@ void World::initializeLevels(int coinChance, int emptyChance, int goombaChance, 
         int jRand = (rand() % m_N);
         m_levelAndGrids[i][iRand][jRand] = 'b';
 
-        while(true){
-            iRand = (rand() % m_N);
-            jRand = (rand() % m_N);
-            if (m_levelAndGrids[i][iRand][jRand] != 'b'){
-                m_levelAndGrids[i][iRand][jRand] = 'w';
-                break;
+        if (i != m_L - 1){
+            while(true){
+                iRand = (rand() % m_N);
+                jRand = (rand() % m_N);
+                if (m_levelAndGrids[i][iRand][jRand] != 'b'){
+                    m_levelAndGrids[i][iRand][jRand] = 'w';
+                    break;
+                }
             }
         }
+        
 
         displayGrid(i);
 
