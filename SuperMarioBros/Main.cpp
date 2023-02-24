@@ -8,35 +8,42 @@ int main(){
     ifstream reader;
     string line;
     reader.open("spec.txt");
+    int L;
+    int N;
+    int V;
+    int coinChance;
+    int emptyChance;
+    int goombaChance;
+    int mushroomChance;
+    int koopaChance;
 
     while (reader){
         getline(reader, line);              //# of levels
-        int L = stoi(line);
+        L = stoi(line);
         getline(reader, line);              //grid dimension
-        int N = stoi(line);
+        N = stoi(line);
         getline(reader, line);              //# of lives
-        int V = stoi(line);
+        V = stoi(line);
         getline(reader, line);
-        int coinChance = stoi(line);
+        coinChance = stoi(line);
         getline(reader, line);
-        int emptyChance = stoi(line);
+        emptyChance = stoi(line);
         getline(reader, line);
-        int goombaChance = stoi(line);
+        goombaChance = stoi(line);
         getline(reader, line);
-        int koopaChance = stoi(line);
+        koopaChance = stoi(line);
         getline(reader, line);
-        int mushroomChance = stoi(line);
+        mushroomChance = stoi(line);
+        break;
     }
 
-    cout << L << N << V << coinChance << emptyChance << endl;
 
+    World* world;
+    world = new World(L, N, coinChance, emptyChance, goombaChance, koopaChance, mushroomChance);
+    Mario* mario;
+    mario = new Mario(V, world);
 
-    // World* world;
-    // world = new World(L, N, coinChance, emptyChance, goombaChance, koopaChance, mushroomChance);
-    // Mario* mario;
-    // mario = new Mario(V, world);
-
-    // mario->play();
+    mario->play();
     
 
     reader.close();
