@@ -12,7 +12,9 @@ Mario::Mario(int V, World* world){
     m_direction = "";
     m_defeatedEnemyCount = 0;
     m_newPosition = new int[2];
-    //maybe have previous position
+    m_lastLifeCount = m_V;
+    m_marioLostGoomba = false;
+    m_marioLostKoopa = false;
 
 }
 
@@ -26,8 +28,7 @@ void Mario::play(){
 
         std::string result = "";
         bool marioWon = false;
-        bool marioLostKoopa = false;
-        bool marioLostGoomba = false;
+        
 
         if (m_world->m_levelAndGrids[m_world->m_currentLevelForMario][m_MarioPosition[0]][m_MarioPosition[1]] == 'H'){
             std::cout << "Mario is starting at (" << m_MarioPosition[0] << ", " << m_MarioPosition[1] << "). " << std::endl;
@@ -38,13 +39,13 @@ void Mario::play(){
             //collect mushroom and move Mario
             collectMushroom();
 
-            if (marioLostGoomba){
+            if (m_marioLostGoomba){
                 m_world->moveMarioAfterLoss(m_world->m_currentLevelForMario, m_MarioPosition[0], m_MarioPosition[1], 'g');
-                marioLostGoomba = false;
-            } else if (marioLostKoopa){
-                marioLostKoopa = false;
+                m_marioLostGoomba = false;
+            } else if (m_marioLostKoopa){
+                m_marioLostKoopa = false;
                 m_world->moveMarioAfterLoss(m_world->m_currentLevelForMario, m_MarioPosition[0], m_MarioPosition[1], 'k');
-            } else {
+            } else if (!m_marioLostGoomba && !m_marioLostKoopa){
                 m_world->moveMario(m_world->m_currentLevelForMario, m_MarioPosition[0], m_MarioPosition[1]);
             }
 
@@ -60,13 +61,13 @@ void Mario::play(){
             //collect coin and move mario
             collectCoin();
 
-            if (marioLostGoomba){
+            if (m_marioLostGoomba){
                 m_world->moveMarioAfterLoss(m_world->m_currentLevelForMario, m_MarioPosition[0], m_MarioPosition[1], 'g');
-                marioLostGoomba = false;
-            } else if (marioLostKoopa){
-                marioLostKoopa = false;
+                m_marioLostGoomba = false;
+            } else if (m_marioLostKoopa){
+                m_marioLostKoopa = false;
                 m_world->moveMarioAfterLoss(m_world->m_currentLevelForMario, m_MarioPosition[0], m_MarioPosition[1], 'k');
-            } else {
+            } else if (!m_marioLostGoomba && !m_marioLostKoopa){
                 m_world->moveMario(m_world->m_currentLevelForMario, m_MarioPosition[0], m_MarioPosition[1]);
             }
 
@@ -82,16 +83,14 @@ void Mario::play(){
         else if (m_world->m_levelAndGrids[m_world->m_currentLevelForMario][m_MarioPosition[0]][m_MarioPosition[1]] == 'g'){
             //encounter enemy and move mario
 
-            if (marioLostGoomba){
-                marioLostGoomba = false;
-                std::cout << marioLostGoomba << std::endl;
+            if (m_marioLostGoomba){
+                m_marioLostGoomba = false;
                 m_world->moveMarioAfterLoss(m_world->m_currentLevelForMario, m_MarioPosition[0], m_MarioPosition[1], 'g');
                 
-            } else if (marioLostKoopa){
-                marioLostKoopa = false;
-                std::cout << marioLostKoopa << std::endl;
+            } else if (m_marioLostKoopa){
+                m_marioLostKoopa = false;
                 m_world->moveMarioAfterLoss(m_world->m_currentLevelForMario, m_MarioPosition[0], m_MarioPosition[1], 'k');
-            } else {
+            } else if (!m_marioLostGoomba && !m_marioLostKoopa){
                 m_world->moveMario(m_world->m_currentLevelForMario, m_MarioPosition[0], m_MarioPosition[1]);
             }
 
@@ -101,7 +100,7 @@ void Mario::play(){
                 m_world->moveMario(m_world->m_currentLevelForMario, m_MarioPosition[0], m_MarioPosition[1]);
             } else {
                 result = "lost";
-                marioLostGoomba = true;
+                m_marioLostGoomba = true;
             }
             
             m_world->displayGrid(m_world->m_currentLevelForMario);
@@ -114,13 +113,13 @@ void Mario::play(){
         else if (m_world->m_levelAndGrids[m_world->m_currentLevelForMario][m_MarioPosition[0]][m_MarioPosition[1]] == 'k'){
             //encounter enemy and move mario
 
-            if (marioLostGoomba){
+            if (m_marioLostGoomba){
                 m_world->moveMarioAfterLoss(m_world->m_currentLevelForMario, m_MarioPosition[0], m_MarioPosition[1], 'g');
-                marioLostGoomba = false;
-            } else if (marioLostKoopa){
-                marioLostKoopa = false;
+                m_marioLostGoomba = false;
+            } else if (m_marioLostKoopa){
+                m_marioLostKoopa = false;
                 m_world->moveMarioAfterLoss(m_world->m_currentLevelForMario, m_MarioPosition[0], m_MarioPosition[1], 'k');
-            } else {
+            } else if (!m_marioLostGoomba && !m_marioLostKoopa){
                 m_world->moveMario(m_world->m_currentLevelForMario, m_MarioPosition[0], m_MarioPosition[1]);
             }
 
@@ -129,7 +128,7 @@ void Mario::play(){
                 result = "won";
             } else {
                 result = "lost";
-                marioLostKoopa = true;
+                m_marioLostKoopa = true;
             }
             m_world->moveMario(m_world->m_currentLevelForMario, m_MarioPosition[0], m_MarioPosition[1]);
             m_MarioPosition = m_world->getMario(m_world->m_currentLevelForMario);
@@ -143,15 +142,16 @@ void Mario::play(){
         else if (m_world->m_levelAndGrids[m_world->m_currentLevelForMario][m_MarioPosition[0]][m_MarioPosition[1]] == 'x'){
             //encounter nothing and move mario
 
-            if (marioLostGoomba){
+            if (m_marioLostGoomba){
                 m_world->moveMarioAfterLoss(m_world->m_currentLevelForMario, m_MarioPosition[0], m_MarioPosition[1], 'g');
-                marioLostGoomba = false;
-            } else if (marioLostKoopa){
-                marioLostKoopa = false;
+                m_marioLostGoomba = false;
+            } else if (m_marioLostKoopa){
+                m_marioLostKoopa = false;
                 m_world->moveMarioAfterLoss(m_world->m_currentLevelForMario, m_MarioPosition[0], m_MarioPosition[1], 'k');
-            } else {
+            } else if (!m_marioLostGoomba && !m_marioLostKoopa){
                 m_world->moveMario(m_world->m_currentLevelForMario, m_MarioPosition[0], m_MarioPosition[1]);
             }
+            
 
             m_MarioPosition = m_world->getMario(m_world->m_currentLevelForMario);
             m_world->displayGrid(m_world->m_currentLevelForMario);
@@ -167,7 +167,7 @@ void Mario::play(){
             m_MarioPosition = m_world->getMario(m_world->m_currentLevelForMario);
             m_world->displayGrid(m_world->m_currentLevelForMario);
             std::cout << "Level: " << m_world->m_currentLevelForMario << ". Mario is at (" << m_MarioPosition[0] << ", " << m_MarioPosition[1] << "). ";
-            std::cout << "Mario is at power level " << m_PowLevel << ". Mario warped to next level. Mario has " << m_V << " lives left. Mario has " << m_coinCount;
+            std::cout << "Mario is at power level " << m_PowLevel << ". Mario warped to next level. Mario has " << m_lastLifeCount << " lives left. Mario has " << m_coinCount;
             m_newPosition = move();    
             std::cout << " coins. Mario will move " << m_direction << "." << std::endl;
             m_MarioPosition = m_newPosition;
@@ -177,17 +177,23 @@ void Mario::play(){
             marioWon = encounterBoss();
             if (!marioWon){
                 result = "lost";
-                m_world->moveMario(m_world->m_currentLevelForMario, m_MarioPosition[0], m_MarioPosition[1]);
+                std::cout << "Level: " << m_world->m_currentLevelForMario << ". Mario is at (" << m_MarioPosition[0] << ", " << m_MarioPosition[1] << "). ";
+                std::cout << "Mario is at power level " << m_PowLevel << ". Mario encountered a boss and " << result << ". Mario has " << m_V << " lives left. Mario has " << m_coinCount;
+                m_newPosition = move();    
+                std::cout << " coins. Mario will move " << m_direction << "." << std::endl;
+                m_MarioPosition = m_newPosition;
             } else {
                 result = "won";
+                std::cout << "Level: " << m_world->m_currentLevelForMario << ". Mario is at (" << m_MarioPosition[0] << ", " << m_MarioPosition[1] << "). ";
+                std::cout << "Mario is at power level " << m_PowLevel << ". Mario encountered a boss and " << result << ". Mario has " << m_lastLifeCount << " lives left. Mario has " << m_coinCount;
+                m_newPosition = move();    
+                std::cout << " coins. Mario will move " << m_direction << "." << std::endl;
+                m_MarioPosition = m_newPosition;
             }
+            m_world->moveMario(m_world->m_currentLevelForMario, m_MarioPosition[0], m_MarioPosition[1]);
             m_MarioPosition = m_world->getMario(m_world->m_currentLevelForMario);
             m_world->displayGrid(m_world->m_currentLevelForMario);
-            std::cout << "Level: " << m_world->m_currentLevelForMario << ". Mario is at (" << m_MarioPosition[0] << ", " << m_MarioPosition[1] << "). ";
-            std::cout << "Mario is at power level " << m_PowLevel << ". Mario warped to next level. Mario has " << m_V << " lives left. Mario has " << m_coinCount;
-            m_newPosition = move();    
-            std::cout << " coins. Mario will move " << m_direction << "." << std::endl;
-            m_MarioPosition = m_newPosition;
+            
         }
         
 
@@ -398,8 +404,6 @@ void Mario::enterWarpPipe(){
     //Mario warps to random spot in next level
     goNextLevel();
     //FInd way to increase level index
-
-
 }
 
 
@@ -472,7 +476,8 @@ void Mario::moveUp(){
 }
 
 void Mario::goNextLevel(){
-    if (m_world->m_currentLevelForMario >= m_world->m_L){
+    if (m_world->m_currentLevelForMario >= m_world->m_L - 1){
+        m_lastLifeCount = m_V;
         m_V = 0;
     }
     else{

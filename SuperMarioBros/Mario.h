@@ -28,6 +28,9 @@ class Mario{
         void moveLeft();
         void moveRight();
         void goNextLevel();
+        bool m_marioLostKoopa;
+        bool m_marioLostGoomba;
+        int m_lastLifeCount;
         int* m_MarioPosition;
         int m_PowLevel;
         int m_defeatedEnemyCount;
