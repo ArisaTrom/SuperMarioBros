@@ -81,6 +81,20 @@ void Mario::play(){
         }
         else if (m_world->m_levelAndGrids[m_world->m_currentLevelForMario][m_MarioPosition[0]][m_MarioPosition[1]] == 'g'){
             //encounter enemy and move mario
+
+            if (marioLostGoomba){
+                marioLostGoomba = false;
+                std::cout << marioLostGoomba << std::endl;
+                m_world->moveMarioAfterLoss(m_world->m_currentLevelForMario, m_MarioPosition[0], m_MarioPosition[1], 'g');
+                
+            } else if (marioLostKoopa){
+                marioLostKoopa = false;
+                std::cout << marioLostKoopa << std::endl;
+                m_world->moveMarioAfterLoss(m_world->m_currentLevelForMario, m_MarioPosition[0], m_MarioPosition[1], 'k');
+            } else {
+                m_world->moveMario(m_world->m_currentLevelForMario, m_MarioPosition[0], m_MarioPosition[1]);
+            }
+
             marioWon = encounterEnemy('g');
             if (marioWon){
                 result = "won";
@@ -99,6 +113,17 @@ void Mario::play(){
         }
         else if (m_world->m_levelAndGrids[m_world->m_currentLevelForMario][m_MarioPosition[0]][m_MarioPosition[1]] == 'k'){
             //encounter enemy and move mario
+
+            if (marioLostGoomba){
+                m_world->moveMarioAfterLoss(m_world->m_currentLevelForMario, m_MarioPosition[0], m_MarioPosition[1], 'g');
+                marioLostGoomba = false;
+            } else if (marioLostKoopa){
+                marioLostKoopa = false;
+                m_world->moveMarioAfterLoss(m_world->m_currentLevelForMario, m_MarioPosition[0], m_MarioPosition[1], 'k');
+            } else {
+                m_world->moveMario(m_world->m_currentLevelForMario, m_MarioPosition[0], m_MarioPosition[1]);
+            }
+
             marioWon = encounterEnemy('k');
             if (marioWon){
                 result = "won";
