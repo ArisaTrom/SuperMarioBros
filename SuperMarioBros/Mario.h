@@ -42,6 +42,7 @@ class Mario{
         void moveLeft();
         void moveRight();
         void goNextLevel();
+        void checkLoss();
         bool m_marioLostKoopa;
         bool m_marioLostGoomba;
         bool m_marioLostBoss;
