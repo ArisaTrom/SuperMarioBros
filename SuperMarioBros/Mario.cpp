@@ -221,14 +221,21 @@ void Mario::play(){
             } else {
                 result = "won";
                 m_newPosition = m_world->getMario(m_world->m_currentLevelForMario); 
-                if (m_world->m_currentLevelForMario == m_world->m_L - 1){           // if Mario wins boss for last level move him on grid to the place of boss
+                if (m_world->m_isLastLevel){           // if Mario wins boss for last level move him on grid to the place of boss
                     m_world->moveMario(m_world->m_currentLevelForMario, m_MarioPosition[0], m_MarioPosition[1]); //moves him to where boss is in new level
+                } else {
+                    m_world->moveMario(m_world->m_currentLevelForMario - 1, m_MarioPosition[0], m_MarioPosition[1]);
                 }
                 std::cout << "Level: " << m_world->m_currentLevelForMario << ". Mario is at (" << m_MarioPosition[0] << ", " << m_MarioPosition[1] << "). ";
                 std::cout << "Mario is at power level " << m_PowLevel << ". Mario encountered a boss and " << result << ". Mario has " << m_lastLifeCount << " lives left. Mario has " << m_coinCount;  
                 std::cout << " coins. "<< std::endl;
                 m_MarioPosition = m_newPosition; //position in new level != old position
-                m_world->displayGrid(m_world->m_currentLevelForMario); //displays grid with him where boss was 
+
+                if (m_world->m_isLastLevel){           // if Mario wins boss for last level display
+                    m_world->displayGrid(m_world->m_currentLevelForMario);
+                } else {
+                    m_world->displayGrid(m_world->m_currentLevelForMario - 1);  // if not display him where boss was in previous level
+                }
                 m_world->moveMario(m_world->m_currentLevelForMario, m_MarioPosition[0], m_MarioPosition[1]); //moves mario to original position
             }
             
@@ -251,7 +258,6 @@ void Mario::firstMove(){
 
     bool marioWon;
     std::string result;
-    std::cout << m_world->m_firstGameElements[m_world->m_currentLevelForMario] << std::endl;
     
     // looking at the element before Mario was placed
     if (m_world->m_firstGameElements[m_world->m_currentLevelForMario] == 'm'){
@@ -523,6 +529,7 @@ void Mario::moveUp(){
 
 void Mario::goNextLevel(){
     if (m_world->m_currentLevelForMario >= m_world->m_L - 1){
+        m_world->m_isLastLevel = true;
         m_lastLifeCount = m_V;
         m_V = 0;
     }

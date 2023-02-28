@@ -26,6 +26,7 @@ World::World(int L, int N, int coinChance, int emptyChance, int goombaChance, in
     m_levelAndGrids = new char**[m_L];
     m_currentLevelForMario = 0;            //Level 0 is first level
     m_firstGameElements = new char[m_L];
+    m_isLastLevel = false;
 
     for (int i = 0; i < m_L; ++i){
         m_levelAndGrids[i] = new char*[m_N];

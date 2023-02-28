@@ -29,6 +29,7 @@ class World{
         int m_N;
         int m_L;
         char* m_firstGameElements;
+        bool m_isLastLevel;
 
     private:
         
