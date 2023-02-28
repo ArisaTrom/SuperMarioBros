@@ -30,6 +30,7 @@ class Mario{
         void goNextLevel();
         bool m_marioLostKoopa;
         bool m_marioLostGoomba;
+        bool m_marioLostBoss;
         int m_lastLifeCount;
         int* m_MarioPosition;
         int m_PowLevel;

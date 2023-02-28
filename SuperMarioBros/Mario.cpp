@@ -15,6 +15,7 @@ Mario::Mario(int V, World* world){
     m_lastLifeCount = m_V;
     m_marioLostGoomba = false;
     m_marioLostKoopa = false;
+    m_marioLostBoss = false;
 
 }
 
@@ -31,6 +32,14 @@ void Mario::play(){
         
 
         if (m_world->m_levelAndGrids[m_world->m_currentLevelForMario][m_MarioPosition[0]][m_MarioPosition[1]] == 'H'){
+            if (m_marioLostBoss){
+                m_marioLostBoss = false;
+                m_world->moveMario(m_world->m_currentLevelForMario, m_MarioPosition[0], m_MarioPosition[1]);
+                std::cout << "Mario is at (" << m_MarioPosition[0] << ", " << m_MarioPosition[1] << "). " << std::endl;
+                m_MarioPosition = move();
+                std::cout << "Mario is at (" << m_MarioPosition[0] << ", " << m_MarioPosition[1] << "). " << std::endl;
+                continue;
+            }
             std::cout << "Mario is starting at (" << m_MarioPosition[0] << ", " << m_MarioPosition[1] << "). " << std::endl;
             m_world->displayGrid(m_world->m_currentLevelForMario);
             firstMove();
@@ -198,7 +207,6 @@ void Mario::play(){
 
     }
 
-    std::cout << m_lastLifeCount << std::endl;
     if (m_lastLifeCount != 0){
         std::cout << "WE BEAT THE GAME! :)" << std::endl;
     } else {
@@ -325,10 +333,12 @@ void Mario::bossWin(){
 }
 
 void Mario::bossLose(){
+    m_marioLostBoss = true;
     switch (m_PowLevel){
         case 0:
         case 1:
             m_V--;
+            m_lastLifeCount = m_V;
             break;
         case 2:
             m_PowLevel -= 2;
@@ -393,6 +403,7 @@ void Mario::marioLose(){
     //if power level 0 mario loses life and defeated enemy count resets
     if (m_PowLevel == 0){
         m_V--;
+        m_lastLifeCount = m_V;
         m_defeatedEnemyCount = 0;
         m_PowLevel = 0;
     }
