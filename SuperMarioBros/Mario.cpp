@@ -1,30 +1,50 @@
+/*
+Arisa Trombley, Carina Chan
+2375446, 2367721
+trombley@chapman.edu, carchan@chapman.edu
+CPSC 350-02, CPSC 350-03
+Programming Assignment 2 - Not So Super Mario Bros.
+*/
+
+/* DESCRIPTION
+Contains constructor, destructor, and method implementations
+for interacting with Mario.
+*/
+
 #include "Mario.h"
 #include <iostream>
 #include <cstdlib>
 
 
+//-----------------------------DONE
+//Mario constructor.
 Mario::Mario(int V, World* world){
-    m_V = V;
-    m_world = world;
-    m_PowLevel = 0;
-    m_coinCount = 0;
-    m_MarioPosition = m_world->getMario(m_world->m_currentLevelForMario);
-    m_direction = "";
-    m_defeatedEnemyCount = 0;
-    m_newPosition = new int[2];
-    m_lastLifeCount = m_V;
-    m_marioLostGoomba = false;
-    m_marioLostKoopa = false;
+
+    //Member variables.
+    m_V = V; //int - Mario's # of lives.
+    m_world = world; //World object - World object to interact with World methods.
+    m_PowLevel = 0; //int - Mario's power level.
+    m_coinCount = 0; //int - Mario's coin count.
+    m_MarioPosition = m_world->getMario(m_world->m_currentLevelForMario); //1D int array - Mario's position, obtained from World method, getMario.
+    m_direction = ""; //string - Mario's next move.
+    m_defeatedEnemyCount = 0; //int - Mario's # of defeated enemies.
+    m_newPosition = new int[2]; //1D int array - Mario's new position [row, column].
+    m_lastLifeCount = m_V; //int - Mario's most recent # of lives (before any changes).
+    m_marioLostGoomba = false; //Boolean - shows if Mario won/lost encountering a goomba.
+    m_marioLostKoopa = false; //Boolean - shows if Mario won/lost encountering a koopa.
     m_marioLostBoss = false;
-
 }
 
+//-----------------------------DONE
+//Mario destructor.
 Mario::~Mario(){
-    delete m_newPosition;
+    delete m_newPosition; //Deletes 1D int array.
 }
 
+
+//play Method - Returns nothing. 
 void Mario::play(){
-    //while mario is alive
+    //While mario is alive
     while (m_V != 0){        
 
         std::string result = "";

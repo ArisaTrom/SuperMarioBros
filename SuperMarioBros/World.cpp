@@ -1,3 +1,16 @@
+/*
+Arisa Trombley, Carina Chan
+2375446, 2367721
+trombley@chapman.edu, carchan@chapman.edu
+CPSC 350-02, CPSC 350-03
+Programming Assignment 2 - Not So Super Mario Bros.
+*/
+
+/* DESCRIPTION
+Contains constructor, destructor, and method implementations
+for interacting with the world and its levels.
+*/
+
 #include "World.h"
 #include "Mario.h"
 #include <iostream>
@@ -116,15 +129,19 @@ void World::displayGrid(int level){
     std::cout << "========================" << std::endl;
 }
 
+//-----------------------------DONE
+//getMario Method - Returns a 1D int array of Mario's coordinates [row, column].
+//Parameters: int - level that Mario is currently on.
 int* World::getMario(int level){
     int* coordinates = new int[2];
 
+    //Iterate through grid to find Mario 'H'.
     for (int i = 0; i < m_N; ++i){
         for (int j = 0; j < m_N; ++j){
             if (m_levelAndGrids[level][i][j] == 'H'){
                 coordinates[0] = i;
                 coordinates[1] = j;
-                return coordinates; //Exits function
+                return coordinates; //Exits function.
             }
         }
     }
