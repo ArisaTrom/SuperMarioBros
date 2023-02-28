@@ -1,3 +1,17 @@
+/*
+Arisa Trombley, Carina Chan
+2375446, 2367721
+trombley@chapman.edu, carchan@chapman.edu
+CPSC 350-02, CPSC 350-03
+Programming Assignment 2 - Not So Super Mario Bros.
+*/
+
+/* DESCRIPTION
+Header file for World.cpp
+Contains constructor, destructor, and method declarations
+for interacting with the world and its levels.
+*/
+
 #ifndef WORLD_H
 #define WORLD_H
 
