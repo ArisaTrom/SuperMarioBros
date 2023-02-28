@@ -31,7 +31,7 @@ Mario::Mario(int V, World* world){
     m_lastLifeCount = m_V; //int - Mario's most recent # of lives (before any changes).
     m_marioLostGoomba = false; //Boolean - shows if Mario won/lost encountering a goomba.
     m_marioLostKoopa = false; //Boolean - shows if Mario won/lost encountering a koopa.
-    m_marioLostBoss = false;
+    m_marioLostBoss = false;  //Boolean - shows if Mario won/lost encountering a boss.
 }
 
 //-----------------------------DONE
@@ -51,14 +51,6 @@ void Mario::play(){
         
 
         if (m_world->m_levelAndGrids[m_world->m_currentLevelForMario][m_MarioPosition[0]][m_MarioPosition[1]] == 'H'){
-            if (m_marioLostBoss){
-                m_marioLostBoss = false;
-                m_world->moveMario(m_world->m_currentLevelForMario, m_MarioPosition[0], m_MarioPosition[1]);
-                std::cout << "Mario is at (" << m_MarioPosition[0] << ", " << m_MarioPosition[1] << "). " << std::endl;
-                m_MarioPosition = move();
-                std::cout << "Mario is at (" << m_MarioPosition[0] << ", " << m_MarioPosition[1] << "). " << std::endl;
-                continue;
-            }
             std::cout << "Mario is starting at (" << m_MarioPosition[0] << ", " << m_MarioPosition[1] << "). " << std::endl;
             m_world->displayGrid(m_world->m_currentLevelForMario);
             firstMove();
@@ -73,6 +65,9 @@ void Mario::play(){
             } else if (m_marioLostKoopa){
                 m_marioLostKoopa = false;
                 m_world->moveMarioAfterLoss(m_world->m_currentLevelForMario, m_MarioPosition[0], m_MarioPosition[1], 'k');
+            } else if (m_marioLostBoss){
+                m_marioLostBoss = false;
+                m_world->moveMarioAfterLoss(m_world->m_currentLevelForMario, m_MarioPosition[0], m_MarioPosition[1], 'b');
             } else if (!m_marioLostGoomba && !m_marioLostKoopa){
                 m_world->moveMario(m_world->m_currentLevelForMario, m_MarioPosition[0], m_MarioPosition[1]);
             }
@@ -95,6 +90,9 @@ void Mario::play(){
             } else if (m_marioLostKoopa){
                 m_marioLostKoopa = false;
                 m_world->moveMarioAfterLoss(m_world->m_currentLevelForMario, m_MarioPosition[0], m_MarioPosition[1], 'k');
+            } else if (m_marioLostBoss){
+                m_marioLostBoss = false;
+                m_world->moveMarioAfterLoss(m_world->m_currentLevelForMario, m_MarioPosition[0], m_MarioPosition[1], 'b');
             } else if (!m_marioLostGoomba && !m_marioLostKoopa){
                 m_world->moveMario(m_world->m_currentLevelForMario, m_MarioPosition[0], m_MarioPosition[1]);
             }
@@ -114,10 +112,12 @@ void Mario::play(){
             if (m_marioLostGoomba){
                 m_marioLostGoomba = false;
                 m_world->moveMarioAfterLoss(m_world->m_currentLevelForMario, m_MarioPosition[0], m_MarioPosition[1], 'g');
-                
             } else if (m_marioLostKoopa){
                 m_marioLostKoopa = false;
                 m_world->moveMarioAfterLoss(m_world->m_currentLevelForMario, m_MarioPosition[0], m_MarioPosition[1], 'k');
+            } else if (m_marioLostBoss){
+                m_marioLostBoss = false;
+                m_world->moveMarioAfterLoss(m_world->m_currentLevelForMario, m_MarioPosition[0], m_MarioPosition[1], 'b');
             } else if (!m_marioLostGoomba && !m_marioLostKoopa){
                 m_world->moveMario(m_world->m_currentLevelForMario, m_MarioPosition[0], m_MarioPosition[1]);
             }
@@ -147,6 +147,9 @@ void Mario::play(){
             } else if (m_marioLostKoopa){
                 m_marioLostKoopa = false;
                 m_world->moveMarioAfterLoss(m_world->m_currentLevelForMario, m_MarioPosition[0], m_MarioPosition[1], 'k');
+            } else if (m_marioLostBoss){
+                m_marioLostBoss = false;
+                m_world->moveMarioAfterLoss(m_world->m_currentLevelForMario, m_MarioPosition[0], m_MarioPosition[1], 'b');
             } else if (!m_marioLostGoomba && !m_marioLostKoopa){
                 m_world->moveMario(m_world->m_currentLevelForMario, m_MarioPosition[0], m_MarioPosition[1]);
             }
@@ -176,6 +179,9 @@ void Mario::play(){
             } else if (m_marioLostKoopa){
                 m_marioLostKoopa = false;
                 m_world->moveMarioAfterLoss(m_world->m_currentLevelForMario, m_MarioPosition[0], m_MarioPosition[1], 'k');
+            } else if (m_marioLostBoss){
+                m_marioLostBoss = false;
+                m_world->moveMarioAfterLoss(m_world->m_currentLevelForMario, m_MarioPosition[0], m_MarioPosition[1], 'b');
             } else if (!m_marioLostGoomba && !m_marioLostKoopa){
                 m_world->moveMario(m_world->m_currentLevelForMario, m_MarioPosition[0], m_MarioPosition[1]);
             }
@@ -200,11 +206,13 @@ void Mario::play(){
             std::cout << " coins. Mario will move " << m_direction << "." << std::endl;
             m_MarioPosition = m_newPosition;
         }
-        else if (m_world->m_levelAndGrids[m_world->m_currentLevelForMario][m_MarioPosition[0]][m_MarioPosition[1]] == 'b'){
-        std::cout << "ENCOUNTERED BOSS" << std::endl;
+        else if (m_world->m_levelAndGrids[m_world->m_currentLevelForMario][m_MarioPosition[0]][m_MarioPosition[1]] == 'b'){  
+        std::cout << "ENCOUNTERED BOSS" << std::endl;                                                                        
             marioWon = encounterBoss();
             if (!marioWon){
+                m_marioLostBoss = true;
                 result = "lost";
+                m_world->moveMario(m_world->m_currentLevelForMario, m_MarioPosition[0], m_MarioPosition[1]);  
                 std::cout << "Level: " << m_world->m_currentLevelForMario << ". Mario is at (" << m_MarioPosition[0] << ", " << m_MarioPosition[1] << "). ";
                 std::cout << "Mario is at power level " << m_PowLevel << ". Mario encountered a boss and " << result << ". Mario has " << m_V << " lives left. Mario has " << m_coinCount;
                 m_newPosition = move();    
@@ -212,13 +220,18 @@ void Mario::play(){
                 m_MarioPosition = m_newPosition;
             } else {
                 result = "won";
+                m_newPosition = m_world->getMario(m_world->m_currentLevelForMario); 
+                if (m_world->m_currentLevelForMario == m_world->m_L - 1){           // if Mario wins boss for last level move him on grid to the place of boss
+                    m_world->moveMario(m_world->m_currentLevelForMario, m_MarioPosition[0], m_MarioPosition[1]); //moves him to where boss is in new level
+                }
                 std::cout << "Level: " << m_world->m_currentLevelForMario << ". Mario is at (" << m_MarioPosition[0] << ", " << m_MarioPosition[1] << "). ";
                 std::cout << "Mario is at power level " << m_PowLevel << ". Mario encountered a boss and " << result << ". Mario has " << m_lastLifeCount << " lives left. Mario has " << m_coinCount;  
-                std::cout << " coins. Mario will move " << m_direction << "." << std::endl;
+                std::cout << " coins. "<< std::endl;
+                m_MarioPosition = m_newPosition; //position in new level != old position
+                m_world->displayGrid(m_world->m_currentLevelForMario); //displays grid with him where boss was 
+                m_world->moveMario(m_world->m_currentLevelForMario, m_MarioPosition[0], m_MarioPosition[1]); //moves mario to original position
             }
-            m_world->moveMario(m_world->m_currentLevelForMario, m_MarioPosition[0], m_MarioPosition[1]);
-            m_MarioPosition = m_world->getMario(m_world->m_currentLevelForMario);
-            m_world->displayGrid(m_world->m_currentLevelForMario);
+            
             
         }
         
@@ -238,6 +251,7 @@ void Mario::firstMove(){
 
     bool marioWon;
     std::string result;
+    std::cout << m_world->m_firstGameElements[m_world->m_currentLevelForMario] << std::endl;
     
     // looking at the element before Mario was placed
     if (m_world->m_firstGameElements[m_world->m_currentLevelForMario] == 'm'){
@@ -352,7 +366,6 @@ void Mario::bossWin(){
 }
 
 void Mario::bossLose(){
-    m_marioLostBoss = true;
     switch (m_PowLevel){
         case 0:
         case 1:
