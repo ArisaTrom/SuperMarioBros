@@ -19,7 +19,6 @@ for interacting with Mario.
 //-----------------------------DONE
 //Mario constructor.
 Mario::Mario(int V, World* world){
-
     //Member variables.
     m_V = V; //int - Mario's # of lives.
     m_world = world; //World object - World object to interact with World methods.
