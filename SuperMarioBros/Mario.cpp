@@ -220,11 +220,11 @@ void Mario::play(){
                 m_MarioPosition = m_newPosition;
             } else {
                 result = "won";
-                m_newPosition = m_world->getMario(m_world->m_currentLevelForMario); 
-                if (m_world->m_isLastLevel){           // if Mario wins boss for last level move him on grid to the place of boss
+                m_newPosition = m_world->getMario(m_world->m_currentLevelForMario); // gets marios starting position for next level grid
+                if (m_world->m_isLastLevel){           // if Mario wins boss on last level move him on grid to the place of boss
                     m_world->moveMario(m_world->m_currentLevelForMario, m_MarioPosition[0], m_MarioPosition[1]); //moves him to where boss is in new level
                 } else {
-                    m_world->moveMario(m_world->m_currentLevelForMario - 1, m_MarioPosition[0], m_MarioPosition[1]);
+                    m_world->moveMario(m_world->m_currentLevelForMario - 1, m_MarioPosition[0], m_MarioPosition[1]); //if not last level move him on previous grid
                 }
                 std::cout << "Level: " << m_world->m_currentLevelForMario << ". Mario is at (" << m_MarioPosition[0] << ", " << m_MarioPosition[1] << "). ";
                 std::cout << "Mario is at power level " << m_PowLevel << ". Mario encountered a boss and " << result << ". Mario has " << m_lastLifeCount << " lives left. Mario has " << m_coinCount;  
@@ -232,11 +232,11 @@ void Mario::play(){
                 m_MarioPosition = m_newPosition; //position in new level != old position
 
                 if (m_world->m_isLastLevel){           // if Mario wins boss for last level display
-                    m_world->displayGrid(m_world->m_currentLevelForMario);
+                    m_world->displayGrid(m_world->m_currentLevelForMario);     // display last level grid with Hero where boss was
                 } else {
-                    m_world->displayGrid(m_world->m_currentLevelForMario - 1);  // if not display him where boss was in previous level
+                    m_world->displayGrid(m_world->m_currentLevelForMario - 1);  // if not display Hero where boss was in previous level
                 }
-                m_world->moveMario(m_world->m_currentLevelForMario, m_MarioPosition[0], m_MarioPosition[1]); //moves mario to original position
+                m_world->moveMario(m_world->m_currentLevelForMario, m_MarioPosition[0], m_MarioPosition[1]); //moves mario to original position on next level grid
             }
             
             
