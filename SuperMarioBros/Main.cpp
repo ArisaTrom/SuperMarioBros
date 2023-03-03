@@ -17,10 +17,15 @@ Main method to play a game of Mario.
 #include "Mario.h"
 
 using namespace std;
-int main(){
+int main(int argc, char **argv){
     ifstream reader; //Reader for input from txt file.
     string line; //String for each line input.
-    reader.open("spec.txt");
+
+    string inFile = argv[1]; 
+    reader.open(inFile);
+
+
+
     int L; //# of levels.
     int N; //Grid dimension.
     int V; //# of lives.

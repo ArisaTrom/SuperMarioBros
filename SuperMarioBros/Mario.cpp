@@ -16,7 +16,6 @@ for interacting with Mario.
 #include <iostream>
 #include <cstdlib>
 
-//-----------------------------DONE
 //Mario constructor.
 Mario::Mario(int V, World* world){
     //Member variables.
@@ -34,14 +33,12 @@ Mario::Mario(int V, World* world){
     m_marioLostBoss = false;  //Boolean - shows if Mario won/lost encountering a boss.
 }
 
-//-----------------------------DONE
 //Mario destructor.
 Mario::~Mario(){
     delete m_newPosition; //Deletes 1D int array.
 }
 
 
-//-----------------------------DONE******
 //play method - Simulates a game of Mario.
 void Mario::play(){
     //While mario is alive.
@@ -202,7 +199,7 @@ void Mario::play(){
         }
     }
 
-    //End the game.
+    //End game statement.
     if (m_lastLifeCount != 0){ //If we end the game with lives.
         std::cout << "WE BEAT THE GAME! :)" << std::endl;
     } else { //If we end the game with 0 lives.
@@ -210,7 +207,7 @@ void Mario::play(){
     }
 }
 
-//-----------------------------DONE
+
 //firstMove method - Looks at the element before Mario was placed.
 void Mario::firstMove(){
 
@@ -280,8 +277,8 @@ void Mario::firstMove(){
 }
 
 
-//-----------------------------DONE
-//checkLoss method - Checks if Mario lost against an enemy.
+
+//checkLoss method - Checks if Mario lost against an enemy before moving Mario on grid.
 void Mario::checkLoss(){
     if (m_marioLostGoomba){ //If lost against a goomba.
         m_world->moveMarioAfterLoss(m_world->m_currentLevelForMario, m_MarioPosition[0], m_MarioPosition[1], 'g');
@@ -297,7 +294,7 @@ void Mario::checkLoss(){
     }
 }
 
-//-----------------------------DONE
+
 //collectCoin method.
 void Mario::collectCoin(){
     ++m_coinCount;
@@ -309,7 +306,7 @@ void Mario::collectCoin(){
     }
 }
 
-//-----------------------------DONE
+
 //collectMushroom method.
 void Mario::collectMushroom(){
     
@@ -324,7 +321,7 @@ void Mario::collectMushroom(){
     }
 }
 
-//-----------------------------DONE
+
 //encounterBoss method - Returns a boolean showing if Mario beat the boss.
 bool Mario::encounterBoss(){
 
@@ -345,13 +342,13 @@ bool Mario::encounterBoss(){
     return bossResult;
 }
 
-//-----------------------------DONE
+
 //bossWin method.
 void Mario::bossWin(){
     goNextLevel(); //Advances the game to the next level.
 }
 
-//-----------------------------DONE
+
 //bossLose method.
 void Mario::bossLose(){
     switch (m_PowLevel){
@@ -369,7 +366,7 @@ void Mario::bossLose(){
     }
 }
 
-//-----------------------------DONE
+
 //encounterEnemy method - Returns a boolean showing if Mario beat the enemy.
 //Parameters: char - the enemy that Mario encounters.
 bool Mario::encounterEnemy(char enemy){
@@ -405,7 +402,7 @@ bool Mario::encounterEnemy(char enemy){
     return enemyResult;
 }
 
-//-----------------------------DONE
+
 //marioWin method.
 void Mario::marioWin(){
     m_defeatedEnemyCount++; //Increases count for number of defeated enemies.
@@ -414,7 +411,7 @@ void Mario::marioWin(){
     }
 }
 
-//-----------------------------DONE
+
 //marioLose method.
 void Mario::marioLose(){
     if (m_PowLevel == 0){ //If power level 0, Mario loses life and defeated enemy count resets to 0.
@@ -428,13 +425,13 @@ void Mario::marioLose(){
     }
 }
 
-//-----------------------------DONE
+
 //enterWarpPipe method.
 void Mario::enterWarpPipe(){
     goNextLevel(); //Advances the game to the next level.
 }
 
-//-----------------------------DONE
+
 //move method  - Returns a 1D int array of Mario's movement [up/down, left/right].
 int* Mario::move(){
     int directions = 4;
@@ -460,7 +457,7 @@ int* Mario::move(){
     return m_MarioPosition;
 }
 
-//-----------------------------DONE
+
 //moveDown method.
 void Mario::moveDown(){
     if (m_MarioPosition[0] == m_world->m_N - 1){ //If at the bottom of grid move to top (0,1) --> (1,1).
@@ -471,7 +468,7 @@ void Mario::moveDown(){
     }
 }
 
-//-----------------------------DONE
+
 //moveLeft method.
 void Mario::moveLeft(){
     if (m_MarioPosition[1] == 0){ // If at the left of grid move to right edge (4,4) --> (4,3).
@@ -482,7 +479,7 @@ void Mario::moveLeft(){
     }
 }
 
-//-----------------------------DONE
+
 //moveRight method.
 void Mario::moveRight(){
     if (m_MarioPosition[1] == m_world->m_N - 1){//If at the right of grid move to left edge (0,1) --> (0,2)
@@ -493,7 +490,7 @@ void Mario::moveRight(){
     }
 }
 
-//-----------------------------DONE
+
 //moveUp method.
 void Mario::moveUp(){
     if (m_MarioPosition[0] == 0){ //If at the top of the grid move to the bottom (4,4) --> (3,4)
@@ -504,7 +501,7 @@ void Mario::moveUp(){
     }
 }
 
-//-----------------------------DONE
+
 //goNextLevel method.
 void Mario::goNextLevel(){
     if (m_world->m_currentLevelForMario >= m_world->m_L - 1){ //If Mario is on the last level.

@@ -1,252 +1,529 @@
 ========================
-x m x m b 
-c m m g k 
-g g x w x 
-g m g c x 
-c x x m x 
+x c g k k 
+b g x m w 
+x g m g x 
+k g g x x 
+m g k c m 
 ========================
 ========================
-x g m m c 
-m x x g m 
-k x k c k 
-x k c m g 
-x b m k k 
+m k k m k 
+g k g k k 
+g k m c x 
+g b c m x 
+x m k g x 
 ========================
 Mario is starting at (2, 2). 
 ========================
-x m x m b 
-c m m g k 
-g g H w x 
-g m g c x 
-c x x m x 
+x c g k k 
+b g x m w 
+x g H g x 
+k g g x x 
+m g k c m 
 ========================
-Level: 0. Mario is at (2, 2). Mario is at power level 0. Mario visited an empty space. Mario has 3 lives left. Mario has 0 coins. Mario will move LEFT.
+Level: 0. Mario is at (2, 2). Mario is at power level 1. Mario ate a mushroom. Mario has 3 lives left. Mario has 0 coins. Mario will move LEFT.
 ========================
-x m x m b 
-c m m g k 
-g H x w x 
-g m g c x 
-c x x m x 
+x c g k k 
+b g x m w 
+x H x g x 
+k g g x x 
+m g k c m 
 ========================
-Level: 0. Mario is at (2, 1). Mario is at power level 0. Mario encountered a goomba and won. Mario has 3 lives left. Mario has 0 coins. Mario will move LEFT.
+Level: 0. Mario is at (2, 1). Mario is at power level 1. Mario encountered a goomba and won. Mario has 3 lives left. Mario has 0 coins. Mario will move LEFT.
 ========================
-x m x m b 
-c m m g k 
-H x x w x 
-g m g c x 
-c x x m x 
+x c g k k 
+b g x m w 
+H x x g x 
+k g g x x 
+m g k c m 
 ========================
-Level: 0. Mario is at (2, 0). Mario is at power level 0. Mario encountered a goomba and won. Mario has 3 lives left. Mario has 0 coins. Mario will move LEFT.
+Level: 0. Mario is at (2, 0). Mario is at power level 1. Mario visited an empty space. Mario has 3 lives left. Mario has 0 coins. Mario will move LEFT.
 ========================
-x m x m b 
-c m m g k 
-x x x w H 
-g m g c x 
-c x x m x 
+x c g k k 
+b g x m w 
+x x x g H 
+k g g x x 
+m g k c m 
 ========================
-Level: 0. Mario is at (2, 4). Mario is at power level 0. Mario visited an empty space. Mario has 3 lives left. Mario has 0 coins. Mario will move LEFT.
+Level: 0. Mario is at (2, 4). Mario is at power level 1. Mario visited an empty space. Mario has 3 lives left. Mario has 0 coins. Mario will move DOWN.
 ========================
-x g m m c 
-m x x g m 
-H x k c k 
-x k c m g 
-x b m k k 
+x c g k k 
+b g x m w 
+x x x g x 
+k g g x H 
+m g k c m 
 ========================
-Level: 1. Mario is at (2, 0). Mario is at power level 0. Mario warped to next level. Mario has 3 lives left. Mario has 0 coins. Mario will move RIGHT.
+Level: 0. Mario is at (3, 4). Mario is at power level 1. Mario visited an empty space. Mario has 3 lives left. Mario has 0 coins. Mario will move RIGHT.
 ========================
-x g m m c 
-m x x g m 
-x H k c k 
-x k c m g 
-x b m k k 
+x c g k k 
+b g x m w 
+x x x g x 
+H g g x x 
+m g k c m 
 ========================
-Level: 1. Mario is at (2, 1). Mario is at power level 0. Mario visited an empty space. Mario has 3 lives left. Mario has 0 coins. Mario will move UP.
+Level: 0. Mario is at (3, 0). Mario is at power level 1. Mario encountered a koopa and won. Mario has 3 lives left. Mario has 0 coins. Mario will move LEFT.
 ========================
-x g m m c 
-m H x g m 
-x x k c k 
-x k c m g 
-x b m k k 
+x c g k k 
+b g x m w 
+x x x g x 
+x g g x H 
+m g k c m 
 ========================
-Level: 1. Mario is at (1, 1). Mario is at power level 0. Mario visited an empty space. Mario has 3 lives left. Mario has 0 coins. Mario will move UP.
+Level: 0. Mario is at (3, 4). Mario is at power level 1. Mario visited an empty space. Mario has 3 lives left. Mario has 0 coins. Mario will move LEFT.
 ========================
-x H m m c 
-m x x g m 
-x x k c k 
-x k c m g 
-x b m k k 
+x c g k k 
+b g x m w 
+x x x g x 
+x g g H x 
+m g k c m 
 ========================
-Level: 1. Mario is at (0, 1). Mario is at power level 0. Mario encountered a goomba and won. Mario has 3 lives left. Mario has 0 coins. Mario will move LEFT.
+Level: 0. Mario is at (3, 3). Mario is at power level 1. Mario visited an empty space. Mario has 3 lives left. Mario has 0 coins. Mario will move DOWN.
 ========================
-H x m m c 
-m x x g m 
-x x k c k 
-x k c m g 
-x b m k k 
+x c g k k 
+b g x m w 
+x x x g x 
+x g g x x 
+m g k H m 
 ========================
-Level: 1. Mario is at (0, 0). Mario is at power level 0. Mario visited an empty space. Mario has 3 lives left. Mario has 0 coins. Mario will move LEFT.
+Level: 0. Mario is at (4, 3). Mario is at power level 1. Mario collected a coin. Mario has 3 lives left. Mario has 1 coins. Mario will move RIGHT.
 ========================
-x x m m H 
-m x x g m 
-x x k c k 
-x k c m g 
-x b m k k 
+x c g k k 
+b g x m w 
+x x x g x 
+x g g x x 
+m g k x H 
 ========================
-Level: 1. Mario is at (0, 4). Mario is at power level 0. Mario collected a coin. Mario has 3 lives left. Mario has 1 coins. Mario will move RIGHT.
+Level: 0. Mario is at (4, 4). Mario is at power level 2. Mario ate a mushroom. Mario has 3 lives left. Mario has 1 coins. Mario will move DOWN.
 ========================
-H x m m x 
-m x x g m 
-x x k c k 
-x k c m g 
-x b m k k 
+x c g k H 
+b g x m w 
+x x x g x 
+x g g x x 
+m g k x x 
 ========================
-Level: 1. Mario is at (0, 0). Mario is at power level 0. Mario visited an empty space. Mario has 3 lives left. Mario has 1 coins. Mario will move UP.
+Level: 0. Mario is at (0, 4). Mario is at power level 2. Mario encountered a koopa and won. Mario has 3 lives left. Mario has 1 coins. Mario will move LEFT.
 ========================
-x x m m x 
-m x x g m 
-x x k c k 
-x k c m g 
-H b m k k 
+x c g H x 
+b g x m w 
+x x x g x 
+x g g x x 
+m g k x x 
 ========================
-Level: 1. Mario is at (4, 0). Mario is at power level 0. Mario visited an empty space. Mario has 3 lives left. Mario has 1 coins. Mario will move UP.
+Level: 0. Mario is at (0, 3). Mario is at power level 2. Mario encountered a koopa and won. Mario has 3 lives left. Mario has 1 coins. Mario will move LEFT.
 ========================
-x x m m x 
-m x x g m 
-x x k c k 
-H k c m g 
-x b m k k 
+x c H x x 
+b g x m w 
+x x x g x 
+x g g x x 
+m g k x x 
 ========================
-Level: 1. Mario is at (3, 0). Mario is at power level 0. Mario visited an empty space. Mario has 3 lives left. Mario has 1 coins. Mario will move RIGHT.
+Level: 0. Mario is at (0, 2). Mario is at power level 2. Mario encountered a goomba and won. Mario has 3 lives left. Mario has 1 coins. Mario will move LEFT.
 ========================
-x x m m x 
-m x x g m 
-x x k c k 
-x H c m g 
-x b m k k 
+x H x x x 
+b g x m w 
+x x x g x 
+x g g x x 
+m g k x x 
 ========================
-Level: 1. Mario is at (3, 1). Mario is at power level 0. Mario encountered a koopa and won. Mario has 3 lives left. Mario has 1 coins. Mario will move LEFT.
+Level: 0. Mario is at (0, 1). Mario is at power level 2. Mario collected a coin. Mario has 3 lives left. Mario has 2 coins. Mario will move LEFT.
 ========================
-x x m m x 
-m x x g m 
-x x k c k 
-H x c m g 
-x b m k k 
+H x x x x 
+b g x m w 
+x x x g x 
+x g g x x 
+m g k x x 
 ========================
-Level: 1. Mario is at (3, 0). Mario is at power level 0. Mario visited an empty space. Mario has 3 lives left. Mario has 1 coins. Mario will move LEFT.
-========================
-x x m m x 
-m x x g m 
-x x k c k 
-x x c m H 
-x b m k k 
-========================
-Level: 1. Mario is at (3, 4). Mario is at power level 0. Mario encountered a goomba and won. Mario has 3 lives left. Mario has 1 coins. Mario will move LEFT.
-========================
-x x m m x 
-m x x g m 
-x x k c k 
-x x c H x 
-x b m k k 
-========================
-Level: 1. Mario is at (3, 3). Mario is at power level 1. Mario ate a mushroom. Mario has 3 lives left. Mario has 1 coins. Mario will move LEFT.
-========================
-x x m m x 
-m x x g m 
-x x k c k 
-x x H x x 
-x b m k k 
-========================
-Level: 1. Mario is at (3, 2). Mario is at power level 1. Mario collected a coin. Mario has 3 lives left. Mario has 2 coins. Mario will move RIGHT.
-========================
-x x m m x 
-m x x g m 
-x x k c k 
-x x x H x 
-x b m k k 
-========================
-Level: 1. Mario is at (3, 3). Mario is at power level 1. Mario visited an empty space. Mario has 3 lives left. Mario has 2 coins. Mario will move UP.
-========================
-x x m m x 
-m x x g m 
-x x k H k 
-x x x x x 
-x b m k k 
-========================
-Level: 1. Mario is at (2, 3). Mario is at power level 1. Mario collected a coin. Mario has 3 lives left. Mario has 3 coins. Mario will move UP.
-========================
-x x m m x 
-m x x H m 
-x x k x k 
-x x x x x 
-x b m k k 
-========================
-Level: 1. Mario is at (1, 3). Mario is at power level 1. Mario encountered a goomba and won. Mario has 3 lives left. Mario has 3 coins. Mario will move LEFT.
-========================
-x x m m x 
-m x H x m 
-x x k x k 
-x x x x x 
-x b m k k 
-========================
-Level: 1. Mario is at (1, 2). Mario is at power level 1. Mario visited an empty space. Mario has 3 lives left. Mario has 3 coins. Mario will move LEFT.
-========================
-x x m m x 
-m H x x m 
-x x k x k 
-x x x x x 
-x b m k k 
-========================
-Level: 1. Mario is at (1, 1). Mario is at power level 1. Mario visited an empty space. Mario has 3 lives left. Mario has 3 coins. Mario will move RIGHT.
-========================
-x x m m x 
-m x H x m 
-x x k x k 
-x x x x x 
-x b m k k 
-========================
-Level: 1. Mario is at (1, 2). Mario is at power level 1. Mario visited an empty space. Mario has 3 lives left. Mario has 3 coins. Mario will move UP.
-========================
-x x H m x 
-m x x x m 
-x x k x k 
-x x x x x 
-x b m k k 
-========================
-Level: 1. Mario is at (0, 2). Mario is at power level 2. Mario ate a mushroom. Mario has 3 lives left. Mario has 3 coins. Mario will move UP.
-========================
-x x x m x 
-m x x x m 
-x x k x k 
-x x x x x 
-x b H k k 
-========================
-Level: 1. Mario is at (4, 2). Mario is at power level 2. Mario ate a mushroom. Mario has 3 lives left. Mario has 3 coins. Mario will move RIGHT.
-========================
-x x x m x 
-m x x x m 
-x x k x k 
-x x x x x 
-x b x H k 
-========================
-Level: 1. Mario is at (4, 3). Mario is at power level 2. Mario encountered a koopa and won. Mario has 4 lives left. Mario has 3 coins. Mario will move LEFT.
-========================
-x x x m x 
-m x x x m 
-x x k x k 
-x x x x x 
-x b H x k 
-========================
-Level: 1. Mario is at (4, 2). Mario is at power level 2. Mario visited an empty space. Mario has 4 lives left. Mario has 3 coins. Mario will move LEFT.
+Level: 0. Mario is at (0, 0). Mario is at power level 2. Mario visited an empty space. Mario has 3 lives left. Mario has 2 coins. Mario will move DOWN.
 ENCOUNTERED BOSS
 Mario fought the level boss and won!
-Level: 1. Mario is at (4, 1). Mario is at power level 2. Mario encountered a boss and won. Mario has 4 lives left. Mario has 3 coins. 
+Level: 1. Mario is at (1, 0). Mario is at power level 2. Mario encountered a boss and won. Mario has 3 lives left. Mario has 2 coins. 
 ========================
 Finished level grid
 ========================
-x x x m x 
-m x x x m 
-x x k x k 
 x x x x x 
-x H x x k 
+H g x m w 
+x x x g x 
+x g g x x 
+m g k x x 
+========================
+Mario is starting at (1, 0). 
+========================
+m k k m k 
+H k g k k 
+g k m c x 
+g b c m x 
+x m k g x 
+========================
+Level: 1. Mario is at (1, 0). Mario is at power level 2. Mario encountered a goomba and won. Mario has 3 lives left. Mario has 2 coins. Mario will move LEFT.
+========================
+m k k m k 
+x k g k H 
+g k m c x 
+g b c m x 
+x m k g x 
+========================
+Level: 1. Mario is at (1, 4). Mario is at power level 2. Mario encountered a koopa and won. Mario has 4 lives left. Mario has 2 coins. Mario will move LEFT.
+========================
+m k k m k 
+x k g H x 
+g k m c x 
+g b c m x 
+x m k g x 
+========================
+Level: 1. Mario is at (1, 3). Mario is at power level 2. Mario encountered a koopa and won. Mario has 4 lives left. Mario has 2 coins. Mario will move LEFT.
+========================
+m k k m k 
+x k H x x 
+g k m c x 
+g b c m x 
+x m k g x 
+========================
+Level: 1. Mario is at (1, 2). Mario is at power level 2. Mario encountered a goomba and won. Mario has 4 lives left. Mario has 2 coins. Mario will move LEFT.
+========================
+m k k m k 
+x H x x x 
+g k m c x 
+g b c m x 
+x m k g x 
+========================
+Level: 1. Mario is at (1, 1). Mario is at power level 2. Mario encountered a koopa and won. Mario has 4 lives left. Mario has 2 coins. Mario will move LEFT.
+========================
+m k k m k 
+H x x x x 
+g k m c x 
+g b c m x 
+x m k g x 
+========================
+Level: 1. Mario is at (1, 0). Mario is at power level 2. Mario visited an empty space. Mario has 4 lives left. Mario has 2 coins. Mario will move LEFT.
+========================
+m k k m k 
+x x x x H 
+g k m c x 
+g b c m x 
+x m k g x 
+========================
+Level: 1. Mario is at (1, 4). Mario is at power level 2. Mario visited an empty space. Mario has 4 lives left. Mario has 2 coins. Mario will move DOWN.
+========================
+m k k m k 
+x x x x x 
+g k m c H 
+g b c m x 
+x m k g x 
+========================
+Level: 1. Mario is at (2, 4). Mario is at power level 2. Mario visited an empty space. Mario has 4 lives left. Mario has 2 coins. Mario will move RIGHT.
+========================
+m k k m k 
+x x x x x 
+H k m c x 
+g b c m x 
+x m k g x 
+========================
+Level: 1. Mario is at (2, 0). Mario is at power level 2. Mario encountered a goomba and won. Mario has 4 lives left. Mario has 2 coins. Mario will move LEFT.
+========================
+m k k m k 
+x x x x x 
+x k m c H 
+g b c m x 
+x m k g x 
+========================
+Level: 1. Mario is at (2, 4). Mario is at power level 2. Mario visited an empty space. Mario has 4 lives left. Mario has 2 coins. Mario will move LEFT.
+========================
+m k k m k 
+x x x x x 
+x k m H x 
+g b c m x 
+x m k g x 
+========================
+Level: 1. Mario is at (2, 3). Mario is at power level 2. Mario collected a coin. Mario has 4 lives left. Mario has 3 coins. Mario will move DOWN.
+========================
+m k k m k 
+x x x x x 
+x k m x x 
+g b c H x 
+x m k g x 
+========================
+Level: 1. Mario is at (3, 3). Mario is at power level 2. Mario ate a mushroom. Mario has 4 lives left. Mario has 3 coins. Mario will move RIGHT.
+========================
+m k k m k 
+x x x x x 
+x k m x x 
+g b c x H 
+x m k g x 
+========================
+Level: 1. Mario is at (3, 4). Mario is at power level 2. Mario visited an empty space. Mario has 4 lives left. Mario has 3 coins. Mario will move DOWN.
+========================
+m k k m k 
+x x x x x 
+x k m x x 
+g b c x x 
+x m k g H 
+========================
+Level: 1. Mario is at (4, 4). Mario is at power level 2. Mario visited an empty space. Mario has 4 lives left. Mario has 3 coins. Mario will move RIGHT.
+========================
+m k k m k 
+x x x x x 
+x k m x x 
+g b c x x 
+H m k g x 
+========================
+Level: 1. Mario is at (4, 0). Mario is at power level 2. Mario visited an empty space. Mario has 4 lives left. Mario has 3 coins. Mario will move RIGHT.
+========================
+m k k m k 
+x x x x x 
+x k m x x 
+g b c x x 
+x H k g x 
+========================
+Level: 1. Mario is at (4, 1). Mario is at power level 2. Mario ate a mushroom. Mario has 4 lives left. Mario has 3 coins. Mario will move DOWN.
+========================
+m H k m k 
+x x x x x 
+x k m x x 
+g b c x x 
+x x k g x 
+========================
+Level: 1. Mario is at (0, 1). Mario is at power level 2. Mario encountered a koopa and won. Mario has 4 lives left. Mario has 3 coins. Mario will move LEFT.
+========================
+H x k m k 
+x x x x x 
+x k m x x 
+g b c x x 
+x x k g x 
+========================
+Level: 1. Mario is at (0, 0). Mario is at power level 2. Mario ate a mushroom. Mario has 4 lives left. Mario has 3 coins. Mario will move LEFT.
+========================
+x x k m H 
+x x x x x 
+x k m x x 
+g b c x x 
+x x k g x 
+========================
+Level: 1. Mario is at (0, 4). Mario is at power level 2. Mario encountered a koopa and won. Mario has 4 lives left. Mario has 3 coins. Mario will move LEFT.
+========================
+x x k H x 
+x x x x x 
+x k m x x 
+g b c x x 
+x x k g x 
+========================
+Level: 1. Mario is at (0, 3). Mario is at power level 2. Mario ate a mushroom. Mario has 4 lives left. Mario has 3 coins. Mario will move LEFT.
+========================
+x x H x x 
+x x x x x 
+x k m x x 
+g b c x x 
+x x k g x 
+========================
+Level: 1. Mario is at (0, 2). Mario is at power level 2. Mario encountered a koopa and won. Mario has 4 lives left. Mario has 3 coins. Mario will move LEFT.
+========================
+x H x x x 
+x x x x x 
+x k m x x 
+g b c x x 
+x x k g x 
+========================
+Level: 1. Mario is at (0, 1). Mario is at power level 2. Mario visited an empty space. Mario has 4 lives left. Mario has 3 coins. Mario will move LEFT.
+========================
+H x x x x 
+x x x x x 
+x k m x x 
+g b c x x 
+x x k g x 
+========================
+Level: 1. Mario is at (0, 0). Mario is at power level 2. Mario visited an empty space. Mario has 4 lives left. Mario has 3 coins. Mario will move DOWN.
+========================
+x x x x x 
+H x x x x 
+x k m x x 
+g b c x x 
+x x k g x 
+========================
+Level: 1. Mario is at (1, 0). Mario is at power level 2. Mario visited an empty space. Mario has 4 lives left. Mario has 3 coins. Mario will move RIGHT.
+========================
+x x x x x 
+x H x x x 
+x k m x x 
+g b c x x 
+x x k g x 
+========================
+Level: 1. Mario is at (1, 1). Mario is at power level 2. Mario visited an empty space. Mario has 4 lives left. Mario has 3 coins. Mario will move DOWN.
+========================
+x x x x x 
+x x x x x 
+x H m x x 
+g b c x x 
+x x k g x 
+========================
+Level: 1. Mario is at (2, 1). Mario is at power level 2. Mario encountered a koopa and won. Mario has 4 lives left. Mario has 3 coins. Mario will move LEFT.
+========================
+x x x x x 
+x x x x x 
+H x m x x 
+g b c x x 
+x x k g x 
+========================
+Level: 1. Mario is at (2, 0). Mario is at power level 2. Mario visited an empty space. Mario has 4 lives left. Mario has 3 coins. Mario will move LEFT.
+========================
+x x x x x 
+x x x x x 
+x x m x H 
+g b c x x 
+x x k g x 
+========================
+Level: 1. Mario is at (2, 4). Mario is at power level 2. Mario visited an empty space. Mario has 4 lives left. Mario has 3 coins. Mario will move DOWN.
+========================
+x x x x x 
+x x x x x 
+x x m x x 
+g b c x H 
+x x k g x 
+========================
+Level: 1. Mario is at (3, 4). Mario is at power level 2. Mario visited an empty space. Mario has 4 lives left. Mario has 3 coins. Mario will move RIGHT.
+========================
+x x x x x 
+x x x x x 
+x x m x x 
+H b c x x 
+x x k g x 
+========================
+Level: 1. Mario is at (3, 0). Mario is at power level 2. Mario encountered a goomba and won. Mario has 4 lives left. Mario has 3 coins. Mario will move LEFT.
+========================
+x x x x x 
+x x x x x 
+x x m x x 
+x b c x H 
+x x k g x 
+========================
+Level: 1. Mario is at (3, 4). Mario is at power level 2. Mario visited an empty space. Mario has 4 lives left. Mario has 3 coins. Mario will move LEFT.
+========================
+x x x x x 
+x x x x x 
+x x m x x 
+x b c H x 
+x x k g x 
+========================
+Level: 1. Mario is at (3, 3). Mario is at power level 2. Mario visited an empty space. Mario has 4 lives left. Mario has 3 coins. Mario will move DOWN.
+========================
+x x x x x 
+x x x x x 
+x x m x x 
+x b c x x 
+x x k H x 
+========================
+Level: 1. Mario is at (4, 3). Mario is at power level 2. Mario encountered a goomba and won. Mario has 4 lives left. Mario has 3 coins. Mario will move LEFT.
+========================
+x x x x x 
+x x x x x 
+x x m x x 
+x b c x x 
+x x H x x 
+========================
+Level: 1. Mario is at (4, 2). Mario is at power level 2. Mario encountered a koopa and won. Mario has 4 lives left. Mario has 3 coins. Mario will move LEFT.
+========================
+x x x x x 
+x x x x x 
+x x m x x 
+x b c x x 
+x H x x x 
+========================
+Level: 1. Mario is at (4, 1). Mario is at power level 2. Mario visited an empty space. Mario has 4 lives left. Mario has 3 coins. Mario will move LEFT.
+========================
+x x x x x 
+x x x x x 
+x x m x x 
+x b c x x 
+H x x x x 
+========================
+Level: 1. Mario is at (4, 0). Mario is at power level 2. Mario visited an empty space. Mario has 4 lives left. Mario has 3 coins. Mario will move DOWN.
+========================
+H x x x x 
+x x x x x 
+x x m x x 
+x b c x x 
+x x x x x 
+========================
+Level: 1. Mario is at (0, 0). Mario is at power level 2. Mario visited an empty space. Mario has 4 lives left. Mario has 3 coins. Mario will move RIGHT.
+========================
+x H x x x 
+x x x x x 
+x x m x x 
+x b c x x 
+x x x x x 
+========================
+Level: 1. Mario is at (0, 1). Mario is at power level 2. Mario visited an empty space. Mario has 4 lives left. Mario has 3 coins. Mario will move DOWN.
+========================
+x x x x x 
+x H x x x 
+x x m x x 
+x b c x x 
+x x x x x 
+========================
+Level: 1. Mario is at (1, 1). Mario is at power level 2. Mario visited an empty space. Mario has 4 lives left. Mario has 3 coins. Mario will move RIGHT.
+========================
+x x x x x 
+x x H x x 
+x x m x x 
+x b c x x 
+x x x x x 
+========================
+Level: 1. Mario is at (1, 2). Mario is at power level 2. Mario visited an empty space. Mario has 4 lives left. Mario has 3 coins. Mario will move RIGHT.
+========================
+x x x x x 
+x x x H x 
+x x m x x 
+x b c x x 
+x x x x x 
+========================
+Level: 1. Mario is at (1, 3). Mario is at power level 2. Mario visited an empty space. Mario has 4 lives left. Mario has 3 coins. Mario will move DOWN.
+========================
+x x x x x 
+x x x x x 
+x x m H x 
+x b c x x 
+x x x x x 
+========================
+Level: 1. Mario is at (2, 3). Mario is at power level 2. Mario visited an empty space. Mario has 4 lives left. Mario has 3 coins. Mario will move LEFT.
+========================
+x x x x x 
+x x x x x 
+x x H x x 
+x b c x x 
+x x x x x 
+========================
+Level: 1. Mario is at (2, 2). Mario is at power level 2. Mario ate a mushroom. Mario has 4 lives left. Mario has 3 coins. Mario will move LEFT.
+========================
+x x x x x 
+x x x x x 
+x H x x x 
+x b c x x 
+x x x x x 
+========================
+Level: 1. Mario is at (2, 1). Mario is at power level 2. Mario visited an empty space. Mario has 4 lives left. Mario has 3 coins. Mario will move UP.
+========================
+x x x x x 
+x H x x x 
+x x x x x 
+x b c x x 
+x x x x x 
+========================
+Level: 1. Mario is at (1, 1). Mario is at power level 2. Mario visited an empty space. Mario has 4 lives left. Mario has 3 coins. Mario will move DOWN.
+========================
+x x x x x 
+x x x x x 
+x H x x x 
+x b c x x 
+x x x x x 
+========================
+Level: 1. Mario is at (2, 1). Mario is at power level 2. Mario visited an empty space. Mario has 4 lives left. Mario has 3 coins. Mario will move DOWN.
+ENCOUNTERED BOSS
+Mario fought the level boss and won!
+Level: 1. Mario is at (3, 1). Mario is at power level 2. Mario encountered a boss and won. Mario has 4 lives left. Mario has 3 coins. 
+========================
+Finished level grid
+========================
+x x x x x 
+x x x x x 
+x x x x x 
+x H c x x 
+x x x x x 
 ========================
 WE BEAT THE GAME! :)

@@ -28,7 +28,7 @@ World::World(int L, int N, int coinChance, int emptyChance, int goombaChance, in
     m_firstGameElements = new char[m_L]; //Array of the first game elements that Mario will encounter for each level.
     m_isLastLevel = false; //Checks if Mario is on the last level.
 
-    //ARISAAA HELPPPP++++++++++++++++++++++++++++++++++++++++++++++++++++
+    //Dynamically allocates 2D Array.
     for (int i = 0; i < m_L; ++i){
         m_levelAndGrids[i] = new char*[m_N];
         for (int j = 0; j < m_N; ++j){
@@ -38,7 +38,7 @@ World::World(int L, int N, int coinChance, int emptyChance, int goombaChance, in
     initializeLevels(coinChance, emptyChance, goombaChance, koopaChance, mushroomChance);
 }
 
-//-----------------------------DONE
+
 //World destructor.
 World::~World(){
     for (int i = 0; i < m_L; ++i){
@@ -76,17 +76,18 @@ void World::initializeLevels(int coinChance, int emptyChance, int goombaChance, 
                 else if (probability <= 100){ //Mushroom placement.
                     m_levelAndGrids[i][j][k] = 'm';
                 }
-                else { //ARISAAA HELPPPP++++++++++++++++++++++++++++++++++++++++++++++++++++ do we need this???
+                else { //Error statement.
                     std::cout << "Didnt work" << std::endl;
                 }
             }
         }
 
-        //ARISAAA HELPPPP++++++++++++++++++++++++++++++++++++++++++++++++++++
+        //Places boss on a random spot on the grid.
         int iRand = (rand() % m_N);
         int jRand = (rand() % m_N);
         m_levelAndGrids[i][iRand][jRand] = 'b';
 
+        //Places warp pipe on a random spot on the grid excluding the boss spot.
         if (i != m_L - 1){
             while(true){
                 iRand = (rand() % m_N);
@@ -98,8 +99,10 @@ void World::initializeLevels(int coinChance, int emptyChance, int goombaChance, 
             }
         }
 
+        //Displays grid before Mario is placed
         displayGrid(i);
 
+        //Places Mario on a random spot on the grid excluding the boss and waro spot.
         while (true){
                 iRand = (rand() % m_N);
                 jRand = (rand() % m_N);
@@ -112,7 +115,7 @@ void World::initializeLevels(int coinChance, int emptyChance, int goombaChance, 
     }
 }
 
-//-----------------------------DONE
+
 //displayGrid method.
 //Parameters: int - level that Mario is on.
 void World::displayGrid(int level){
@@ -126,7 +129,7 @@ void World::displayGrid(int level){
     std::cout << "========================" << std::endl;
 }
 
-//-----------------------------DONE
+
 //getMario method - Returns a 1D int array of Mario's coordinates [row, column].
 //Parameters: int - level that Mario is currently on.
 int* World::getMario(int level){
@@ -145,7 +148,6 @@ int* World::getMario(int level){
 }
 
 
-//-----------------------------DONE
 //moveMario method.
 //Parameters: int level - the level that Mario is on, int mario_x - new x-coord, int mario_y - new y-coord.
 void World::moveMario(int level, int mario_x, int mario_y){
@@ -162,7 +164,7 @@ void World::moveMario(int level, int mario_x, int mario_y){
 }
 
 
-//-----------------------------DONE
+
 //moveMarioAfterLoss method.
 //Parameters: int level - the level that Mario is on, int mario_x - new x-coord, int mario_y - new y-coord, char e - char that Mario encounters.
 void World::moveMarioAfterLoss(int level, int mario_x, int mario_y, char e){
