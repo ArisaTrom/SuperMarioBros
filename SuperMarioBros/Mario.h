@@ -12,10 +12,13 @@ Contains constructor, destructor, and method declarations
 for interacting with Mario.
 */
 
+
 #ifndef MARIO_H
 #define MARIO_H
 #include <string>
 #include "World.h"
+
+//Comments relevant to the contents in this header file are in the respective cpp file, Mario.cpp.
 
 class Mario{
     public:
@@ -25,7 +28,6 @@ class Mario{
         void play();
         int m_V;
         
-
     private:
         void firstMove();
         void collectCoin();
@@ -54,9 +56,6 @@ class Mario{
         int m_coinCount;
         std::string m_direction;
         int* m_newPosition;
-
 };
-
-
 
 #endif 

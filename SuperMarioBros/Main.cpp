@@ -6,6 +6,10 @@ CPSC 350-02, CPSC 350-03
 Programming Assignment 2 - Not So Super Mario Bros.
 */
 
+/* DESCRIPTION
+Main method to play a game of Mario.
+*/
+
 
 #include <iostream>
 #include <fstream>
@@ -14,24 +18,25 @@ Programming Assignment 2 - Not So Super Mario Bros.
 
 using namespace std;
 int main(){
-    ifstream reader;
-    string line;
+    ifstream reader; //Reader for input from txt file.
+    string line; //String for each line input.
     reader.open("spec.txt");
-    int L;
-    int N;
-    int V;
+    int L; //# of levels.
+    int N; //Grid dimension.
+    int V; //# of lives.
     int coinChance;
     int emptyChance;
     int goombaChance;
     int mushroomChance;
     int koopaChance;
 
+    //Reading input from txt file and assigning to respective variables.
     while (reader){
-        getline(reader, line);              //# of levels
+        getline(reader, line);
         L = stoi(line);
-        getline(reader, line);              //grid dimension
+        getline(reader, line);
         N = stoi(line);
-        getline(reader, line);              //# of lives
+        getline(reader, line);
         V = stoi(line);
         getline(reader, line);
         coinChance = stoi(line);
@@ -46,20 +51,20 @@ int main(){
         break;
     }
 
-
+    //Creating World and Mario objects.
     World* world;
     world = new World(L, N, coinChance, emptyChance, goombaChance, koopaChance, mushroomChance);
     Mario* mario;
     mario = new Mario(V, world);
 
+    //Calling play method, playing the game.
     mario->play();
     
-
+    //Closing the reader.
     reader.close();
 
     delete mario;
     delete world;
 
     return 0;
-
 }

@@ -12,8 +12,11 @@ Contains constructor, destructor, and method declarations
 for interacting with the world and its levels.
 */
 
+
 #ifndef WORLD_H
 #define WORLD_H
+
+//Comments relevant to the contents in this header file are in the respective cpp file, World.cpp.
 
 class World{
     public:
@@ -30,9 +33,6 @@ class World{
         int m_L;
         char* m_firstGameElements;
         bool m_isLastLevel;
-        
-        
 };
-
 
 #endif
